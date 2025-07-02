@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useRef,useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Main from "../components/layout/Main";
 
 // Pages
 import Home from "../pages/Home";
-import About from "../pages/About";
+
 import Contact from "../pages/Contact";
 import MattSchool from "../pages/pages/MattSchool";
 import MattFurnishing from "../pages/pages/MattFurnishing";
 import MattModel from "../pages/pages/MattModel";
 import Hero from "../components/hero/Hero";
+import Feature from "../components/Feature";
+import AboutUs from "../components/aboutUs/AboutUs";
+import Service from "../components/service/Service";
 
 const ErrorElement = () => (
   <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -27,13 +30,14 @@ const ErrorElement = () => (
     </div>
   </div>
 );
+  
 
 const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Main />}>
-        <Route index element={<Hero />} />
-        <Route path="about" element={<About />} />
+        <Route index element={<><Hero /><Feature /><AboutUs /> <Service /> </> } />
+       
         <Route path="pages">
           <Route path="mattschool" element={<MattSchool />} />
           <Route path="mattfurnishing" element={<MattFurnishing />} />

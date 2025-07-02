@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import AOS from 'aos';
-
+import AOS from "aos";
 
 const slides = [
   {
@@ -36,13 +35,12 @@ const Hero = () => {
 
   useEffect(() => {
     AOS.refresh();
-  }, []);
+  }, [current]);
 
   const goToSlide = (idx) => setCurrent(idx);
 
   return (
     <section className="relative w-full h-screen min-h-[800px]  overflow-hidden">
-    
       {/* Animated Background Slider */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden ">
         <div
@@ -102,7 +100,7 @@ const Hero = () => {
       />
       <img
         src="/assets/images/shape/shape-3.webp"
-        className="absolute top-20 left-20 z-10 opacity-50 animate-floatReverse"
+        className="absolute bottom-10 left-1/2 z-10 opacity-50 animate-floatReverse"
         alt=""
         data-aos="fade-up"
         data-aos-delay="200"
@@ -173,7 +171,7 @@ const Hero = () => {
                 <img
                   src={slide.bg_small && slide.bg_small}
                   alt="Interior Wallpaper"
-                  className="w-full h-full object-cover rounded-3xl shadow-2xl hover:shadow-3xl transition-shadow duration-300"
+                  className="w-full h-full object-cover rounded-3xl   duration-300"
                 />
               </div>
             ))}
@@ -183,9 +181,9 @@ const Hero = () => {
 
       {/* Navigation */}
       <div
-        className="absolute left-1/2 bottom-8 -translate-x-1/2 flex items-center gap-2 z-30"
+        className="absolute left-1/2 bottom-8  translate-x-1/2 flex items-center gap-2 z-30"
         data-aos="fade-up"
-        data-aos-delay="1200"
+        data-aos-delay="200"
         data-aos-duration="800"
       >
         {slides.map((_, idx) => (
@@ -198,7 +196,7 @@ const Hero = () => {
                 : "bg-transparent text-[#DF9E42] hover:bg-[#DF9E42]/10"
             }`}
             data-aos="zoom-in"
-            data-aos-delay={1400 + (idx * 100)}
+            data-aos-delay={1400 + idx * 100}
             data-aos-duration="400"
           >
             {`0${idx + 1}`}
