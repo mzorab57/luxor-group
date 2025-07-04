@@ -55,7 +55,17 @@ const Work = () => {
   }, []);
 
   return (
-    <section className="py-10 md:py-20 bg-gradient-to-b from-[#f8f5f0] to-white relative overflow-hidden ">
+    <section  style={{
+      backgroundImage: "url('/assets/images/shape/shape-work.webp')",
+      backgroundRepeat: "no-repeat",
+    }} className="py-10 md:py-20  bg-cover  relative overflow-hidden ">
+
+    <img 
+      src="/assets/images/shape/shape-work-2.png" 
+      alt="lamp" 
+      className='absolute -top-60 right-0 scale-50 animate-lamp-float hidden lg:block'
+    />
+
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -66,11 +76,12 @@ const Work = () => {
       </div>
 
       <div className="container flex flex-col mx-auto  w-full px-4 relative z-10">
+
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-16">
           <h4 className="text-primary font-medium tracking-wider text-start uppercase mb-2 md:mb-3 text-sm md:text-base">OUR COMPLETE PROJECT</h4>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 text-start">Our Quality Work</h2>
-          <p className='text-start mt-3 max-w-lg text-lg'>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 text-start">Our Quality Work</h2>
+          <p className='text-start mt-3 max-w-xl text-lg font-medium text-gray-500'>
           At Luxor, art is more than decoration—it's an expression of individuality. Experience the beauty of authentic, handcrafted paintings designed to inspire and captivate.
           </p>
         </div>
