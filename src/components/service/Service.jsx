@@ -176,22 +176,22 @@ const Service = () => {
           </button>
         </div>
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 group">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 group ">
           {services.slice(0, 4).map((service, idx) => (
             <div
               key={service.id}
-              className="relative w-full h-64 overflow-hidden bg-black  rounded-t-3xl"
+              className="relative w-full h-64 overflow-hidden  rounded-t-3xl"
               style={{ borderBottomRightRadius: "60px" }}
             >
               {/* Service Image */}
               <img
                 src={service.image}
                 alt={service.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover "
               />
 
               {/* Dark overlay at the bottom */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent " />
+              <div className="absolute inset-0 bg-gradient-to-t from-yellow-950/60 via-yellow-900/15 to-transparent " />
 
               {/* Service number badge */}
               <span className="absolute top-4 left-4 bg-primary/60 text-[#292828] font-bold px-4 py-1 rounded-full text-sm shadow">
@@ -204,7 +204,7 @@ const Service = () => {
                   {service.title}
                 </span>
                 <button
-                  className="px-5 pr-9 py-2   text-gray-300 rounded-full font-medium bg-black/40 hover:bg-primary hover:text-[#19160f] transition hover-target"
+                  className="px-5 pr-9 py-2 border border-gray-400  text-gray-300 rounded-full font-medium bg-black/40 hover:bg-primary hover:text-[#19160f] transition hover-target"
                   style={{ backdropFilter: "blur(0px)" }}
                   onClick={() => setSelectedService(service)}
                 >

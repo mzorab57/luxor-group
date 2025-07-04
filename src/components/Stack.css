@@ -1,0 +1,81 @@
+.stack-container {
+  position: relative;
+  perspective: 1000px;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.card-rotate {
+  position: absolute;
+  cursor: grab;
+  transform-style: preserve-3d;
+  will-change: transform;
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  border-radius: 20px;
+  border: 5px solid #fff;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3/4;
+}
+
+.card:hover {
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+}
+
+.card-image {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-image {
+  transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+  .stack-container {
+    max-width: 900px;
+  }
+  
+  .card {
+    aspect-ratio: 2/3;
+  }
+}
+
+@media (max-width: 768px) {
+  .stack-container {
+    max-width: 600px;
+  }
+  
+  .card {
+    border-width: 3px;
+    aspect-ratio: 3/4;
+  }
+}
+
+@media (max-width: 480px) {
+  .stack-container {
+    max-width: 100%;
+    margin: 1rem auto;
+  }
+  
+  .card {
+    border-width: 2px;
+    aspect-ratio: 1/1;
+  }
+  
+  .card-image {
+    object-position: center;
+  }
+}
