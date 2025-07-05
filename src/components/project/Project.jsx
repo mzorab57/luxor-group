@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const projects = [
   {
@@ -38,7 +39,7 @@ const Project = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/5 via-white to-secondary/5 relative overflow-hidden">
+    <section className="py-20 bg-black/90 relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-[500px] h-[500px] -top-64 -left-64 bg-primary/10 rounded-full blur-3xl animate-float-slow" />
@@ -52,7 +53,7 @@ const Project = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-primary font-medium tracking-wider uppercase mb-3"
+            className="text-primary text-start font-medium tracking-wider uppercase mb-3"
           >
             OUR LATEST PROJECTS
           </motion.h4>
@@ -60,18 +61,24 @@ const Project = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900"
+            className="text-4xl md:text-5xl font-semibold text-start text-gray-200"
           >
             Featured Projects
           </motion.h2>
+          <div className=' w-full lg:text-end text-start pt-5'>
+
+              <Link to="/project" className="border  w-full border-primary hover:text-black hover:bg-primary font-medium   text-primary px-4 py-2  rounded-full hover:bg-primary-dark transition-colors text-sm md:text-base">
+              View All Projects
+            </Link>
+          </div>
         </div>
 
         {/* Project Carousel */}
-        <div className="relative max-w-6xl  mx-auto">
-          <div className="flex items-center justify-center gap-6">
+        <div className="relative   max-w-6xl  mx-auto">
+          <div className="flex items-center justify-center lg:gap-6">
             {/* Previous Project */}
             <motion.div 
-              className="relative w-64 h-80 rounded-2xl overflow-hidden opacity-50 scale-90"
+              className="relative w-0 lg:w-64  h-80 rounded-2xl overflow-hidden opacity-50 scale-90"
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 0.5 }}
               transition={{ duration: 0.6 }}
@@ -85,7 +92,7 @@ const Project = () => {
 
             {/* Current Project */}
             <motion.div 
-              className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl"
+              className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-xl"
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6 }}
@@ -109,7 +116,7 @@ const Project = () => {
 
             {/* Next Project */}
             <motion.div 
-              className="relative w-64 h-80 rounded-2xl overflow-hidden opacity-50 scale-90"
+              className="relative w-0 lg:w-64 h-80 rounded-2xl overflow-hidden opacity-50 scale-90"
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 0.5 }}
               transition={{ duration: 0.6 }}
@@ -126,18 +133,18 @@ const Project = () => {
           <div className="flex justify-center gap-4 mt-8">
             <button 
               onClick={prevProject}
-              className="w-12 h-12 rounded-full bg-white shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center"
+              className="w-12 h-12 rounded-full hover:scale-105 bg-white border border-primary shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center"
             >
-              <svg className="w-6 h-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
             <button 
               onClick={nextProject}
-              className="w-12 h-12 rounded-full bg-white shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center"
+              className="w-12 h-12 rounded-full hover:scale-105 bg-white border border-primary shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center"
             >
-              <svg className="w-6 h-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg className="w-6 h-6 text-primary " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round"  strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
           </div>
@@ -146,20 +153,21 @@ const Project = () => {
 
       {/* Project Details Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-2">
+        <div className="fixed inset-0 bg-black/80  flex items-center justify-center z-50 px-2">
           <motion.div 
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="bg-white rounded-2xl p-4 max-w-2xl w-full"
+            className="b rounded-2xl p-4 max-w-2xl w-full"
           >
-            <div className="flex justify-between items-start mb-4">
-              <div>
+            <div className="flex justify-end mb-4">
+              {/* <div>
                 <h3 className="text-2xl font-bold text-gray-900">{selectedProject.title}</h3>
+                <p className="text-gray-600">{selectedProject.description}</p>
                 <p className="text-primary">{selectedProject.category}</p>
-              </div>
+              </div> */}
               <button 
                 onClick={() => setSelectedProject(null)}
-                className="text-gray-500 hover:text-gray-700"
+                className="text-gray-500  hover:text-gray-700"
               >
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -169,9 +177,9 @@ const Project = () => {
             <img 
               src={selectedProject.image} 
               alt={selectedProject.title}
-              className="size-full object-cover  mb-4"
+              className=" object-cover  mb-4"
             />
-            <p className="text-gray-600">{selectedProject.description}</p>
+          
           </motion.div>
         </div>
       )}

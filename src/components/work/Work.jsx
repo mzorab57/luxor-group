@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Stack from '../Stack';
+import { Link } from 'react-router-dom';
 
 const works = [
   {
@@ -75,7 +76,7 @@ const Work = () => {
         }} />
       </div>
 
-      <div className="container flex flex-col mx-auto  w-full px-4 relative z-10">
+      <div className="container flex  flex-col mx-auto  w-full px-4 relative z-10">
 
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-16">
@@ -84,6 +85,9 @@ const Work = () => {
           <p className='text-start mt-3 max-w-xl text-lg font-medium text-gray-500'>
           At Luxor, art is more than decoration—it's an expression of individuality. Experience the beauty of authentic, handcrafted paintings designed to inspire and captivate.
           </p>
+          
+         
+          
         </div>
 
         {/* Stack Gallery */}
