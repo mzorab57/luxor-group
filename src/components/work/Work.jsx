@@ -61,9 +61,9 @@ const Work = () => {
     }} className="py-10 md:py-20  bg-cover  relative overflow-hidden ">
 
     <img 
-      src="/assets/images/shape/shape-work-2.png" 
+      src="/assets/images/shape/shape-work-3.png" 
       alt="lamp" 
-      className='absolute -top-60 right-0 scale-50 animate-lamp-float hidden lg:block'
+      className='absolute top-0 right-20  animate-lamp-float hidden  lg:block'
     />
 
       {/* Background Pattern */}

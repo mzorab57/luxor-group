@@ -14,6 +14,7 @@ import Feature from "../components/Feature";
 import AboutUs from "../components/aboutUs/AboutUs";
 import Service from "../components/service/Service";
 import Work from "../components/work/Work";
+import Project from "../components/project/Project";
 
 const ErrorElement = () => (
   <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -37,7 +38,7 @@ const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Main />}>
-        <Route index element={<><Hero /><Feature /><AboutUs /> <Service /> <Work /> </> } />
+        <Route index element={<><Hero /><Feature /><AboutUs /> <Service /> <Work /> <Project /> </> } />
        
         <Route path="pages">
           <Route path="mattschool" element={<MattSchool />} />
