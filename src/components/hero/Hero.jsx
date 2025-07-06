@@ -40,7 +40,7 @@ const Hero = () => {
   const goToSlide = (idx) => setCurrent(idx);
 
   return (
-    <section className="relative w-full h-screen min-h-[800px]  overflow-hidden">
+    <section className="relative w-full h-screen min-h-[800px]   overflow-hidden">
       {/* Animated Background Slider */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden ">
         <div
