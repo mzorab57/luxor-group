@@ -139,7 +139,7 @@ const Project = () => {
           <div className="flex justify-center gap-4 mt-8">
             <button 
               onClick={prevProject}
-              className="w-12 h-12 rounded-full hover:scale-105 bg-white border border-primary shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center"
+              className="w-12 h-12 rounded-full hover:scale-105 bg-transparent border border-primary shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center"
             >
               <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -147,7 +147,7 @@ const Project = () => {
             </button>
             <button 
               onClick={nextProject}
-              className="w-12 h-12 rounded-full hover:scale-105 bg-white border border-primary shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center"
+              className="w-12 h-12 rounded-full hover:scale-105 bg-transparent border border-primary shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center"
             >
               <svg className="w-6 h-6 text-primary " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round"  strokeWidth={2} d="M9 5l7 7-7 7" />

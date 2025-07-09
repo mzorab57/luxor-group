@@ -7,7 +7,7 @@ const Footer = () => {
       <div
         className="absolute inset-0 pointer-events-none opacity-10 bg-cover"
         style={{
-          backgroundImage: "url('/assets/images/shape/shape-footer.webp')",
+          // backgroundImage: "url('/assets/images/shape/shape-footer.webp')",
           backgroundRepeat: "repeat",
         }}
       />

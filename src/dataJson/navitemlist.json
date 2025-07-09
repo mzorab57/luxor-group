@@ -1,5 +1,5 @@
 
-  [
+[
     {
       "title": "Home",
       "link": "/"
@@ -9,25 +9,16 @@
       "link": "/about"
     },
     {
-      "title": "Pages",
-      "link": "#",
-      "children": [
-        {
-          "title": "Matt School",
-          "link": "/pages/mattschool",
-          "key": "mattschool"
-        },
-        {
-          "title": "Matt Furnishing",
-          "link": "/pages/mattfurnishing",
-          "key": "mattfurnishing"
-        },
-        {
-          "title": "Matt Model",
-          "link": "/pages/mattmodel",
-          "key": "mattmodel"
-        }
-      ]
+      "title": "Gallery",
+      "link": "/gallery"
+    },
+    {
+      "title": "Project",
+      "link": "/project"
+    },
+    {
+      "title": "Dashboard",
+      "link": "/dashboard"
     },
     {
       "title": "Contact",

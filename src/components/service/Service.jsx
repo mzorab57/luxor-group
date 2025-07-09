@@ -136,8 +136,9 @@ const Service = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-32 bg-[#19160f] overflow-hidden"
+      className="relative py-32 bg-[#19160f] overflow-hidden "
     >
+       
       {/* Damask/Floral Pattern Overlay */}
       <div
         className="absolute inset-0 pointer-events-none opacity-5 bg-cover"
@@ -146,6 +147,11 @@ const Service = () => {
           backgroundRepeat: "repeat",
         }}
       />
+       <img 
+      src="/assets/images/shape/shape-work-3.png" 
+      alt="lamp" 
+      className='absolute top-0 right-20  animate-lamp-float hidden  lg:block'
+    />
       {/* Custom Cursor */}
       <div
         ref={cursorRef}
