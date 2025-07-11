@@ -73,6 +73,8 @@ const Work = () => {
         alt="bg"
         className="absolute inset-0 z-0 size-full"
       />
+      {/* Overlay for dimming background if needed */}
+        <div className="absolute inset-0 bg-gradient-to-tl from-[#f1f0e9] via-[#ede6dd]/70 to-transparent pointer-events-none" />
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-32 h-32 bg-primary/20 rounded-full blur-xl"></div>
         <div className="absolute bottom-20 right-20 w-24 h-24 bg-primary/15 rounded-full blur-xl"></div>

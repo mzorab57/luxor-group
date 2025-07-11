@@ -17,6 +17,7 @@ import Work from "../components/work/Work";
 import Project from "../components/project/Project";
 import Location from "../components/location/Location";
 import Dashboard from "../components/dashboard/Dashboard";
+import OurProject from "../pages/OurProject";
 
 
 const ErrorElement = () => (
@@ -55,6 +56,7 @@ const Router = () => {
           }
         />
         <Route path="gallery" element={<Gallery />} />
+        <Route path="project" element={<OurProject />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="contact" element={<Contact />} />
       </Route>

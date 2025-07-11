@@ -49,7 +49,6 @@ export default function Dashboard() {
   useEffect(() => {
     fetchGallery();
   }, []);
-
   const fetchGallery = async () => {
     const res = await fetch(API_URL);
     const data = await res.json();
@@ -69,7 +68,10 @@ export default function Dashboard() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let payload;
-    let isFileUpload = Array.isArray(form.images) && form.images.length > 0 && form.images[0] instanceof File;
+    let isFileUpload =
+      Array.isArray(form.images) &&
+      form.images.length > 0 &&
+      form.images[0] instanceof File;
     try {
       if (isFileUpload) {
         payload = new FormData();
@@ -79,7 +81,17 @@ export default function Dashboard() {
           } else {
             payload.append(key, value);
           }
+          
         });
+
+        // Add this fetch options for file upload
+        const fetchOptions = {
+          method: editingId ? "PUT" : "POST",
+          body: payload,
+        };
+
+        const url = editingId ? `${API_URL}/${editingId}` : API_URL;
+        await fetch(url, fetchOptions);
       } else {
         payload = {
           ...form,
@@ -87,17 +99,16 @@ export default function Dashboard() {
           price: form.price ? parseFloat(form.price) : 0,
           upload_date: form.upload_date || null,
         };
+
+        const fetchOptions = {
+          method: editingId ? "PUT" : "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        };
+        const url = editingId ? ` ${API_URL}/${editingId}` : API_URL;
+        await fetch(url, fetchOptions);
       }
-      const fetchOptions = {
-        method: editingId ? "PUT" : "POST",
-        body: payload,
-      };
-      if (!isFileUpload) {
-        fetchOptions.headers = { "Content-Type": "application/json" };
-        fetchOptions.body = JSON.stringify(payload);
-      }
-      const url = editingId ? `${API_URL}/${editingId}` : API_URL;
-      await fetch(url, fetchOptions);
+
       setSnackbar({
         open: true,
         message: editingId ? "Updated successfully!" : "Added successfully!",
@@ -108,9 +119,10 @@ export default function Dashboard() {
       setOpen(false);
       fetchGallery();
     } catch (err) {
+      console.error("Error:", err);
       setSnackbar({
         open: true,
-        message: "Error occurred!",
+        message: "Error occurred!" + err.message,
         severity: "error",
       });
     }
@@ -142,7 +154,6 @@ export default function Dashboard() {
     setEditingId(null);
     setOpen(true);
   };
-
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     {
@@ -189,7 +200,6 @@ export default function Dashboard() {
       ),
     },
   ];
-
   return (
     <Box sx={{ maxWidth: 1500, mx: "auto", p: 3 }}>
       <Typography variant="h4" gutterBottom className="pt-20 ">
@@ -381,6 +391,7 @@ export default function Dashboard() {
           {snackbar.message}
         </Alert>
       </Snackbar>
+       
     </Box>
   );
 }

@@ -17,7 +17,7 @@ const PagesHeader = ({ img, title }) => {
                 to="/"
                 className="text-gray-200 text-xl font-jost font-medium"
               >
-                {"home"}
+                {"home"} //
               </Link>
             </li>
             <li className="text-gray-200 text-xl font-jost font-medium">
