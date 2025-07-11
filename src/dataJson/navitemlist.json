@@ -17,6 +17,10 @@
       "link": "/project"
     },
     {
+      "title": "Service",
+      "link": "/service"
+    },
+    {
       "title": "Dashboard",
       "link": "/dashboard"
     },

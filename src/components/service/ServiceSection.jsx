@@ -90,7 +90,7 @@ const services = [
   },
 ];
 
-const Service = () => {
+const ServiceSection = () => {
   const cursorRef = useRef(null);
   const [selectedService, setSelectedService] = useState(null);
   const sectionRef = useRef(null);
@@ -252,4 +252,4 @@ const Service = () => {
     </section>
   );
 };
-export default Service;
+export default ServiceSection;

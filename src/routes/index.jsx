@@ -5,6 +5,7 @@ import Main from "../components/layout/Main";
 // Pages
 
 import Gallery from "../pages/Gallery";
+import Service from "../pages/Service";
 import Contact from "../pages/Contact";
 
 
@@ -12,7 +13,7 @@ import Contact from "../pages/Contact";
 import Hero from "../components/hero/Hero";
 import Feature from "../components/Feature";
 import AboutUs from "../components/aboutUs/AboutUs";
-import Service from "../components/service/Service";
+import ServiceSection from "../components/service/ServiceSection";
 import Work from "../components/work/Work";
 import Project from "../components/project/Project";
 import Location from "../components/location/Location";
@@ -48,7 +49,7 @@ const Router = () => {
               <Hero />
               <Feature />
               <AboutUs />
-              <Service />
+              <ServiceSection />
               <Work />
               <Project />
               <Location />
@@ -57,6 +58,7 @@ const Router = () => {
         />
         <Route path="gallery" element={<Gallery />} />
         <Route path="project" element={<OurProject />} />
+        <Route path="service" element={<Service />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="contact" element={<Contact />} />
       </Route>
