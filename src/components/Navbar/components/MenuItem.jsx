@@ -6,14 +6,20 @@ const MenuItem = ({ item }) => {
   const { t } = useTranslation();
 
   const handleScrollToTop = (e) => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (item.link === "/#about-section") {
+      window.scrollTo({ top: 750, behavior: "smooth" });
+    } else if (item.link === "/#hero-section") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
     <li className="relative group">
       {item.children ? (
         <>
-          <span className="cursor-pointer  flex items-center px-4 hover:text-indigo-600">
+          <span className="cursor-pointer  flex items-center px-4 hover:text-primary">
             {t(`nav.${item.title.toLowerCase()}`)}
             <svg
               className="w-4 h-4 ml-2"
@@ -34,7 +40,7 @@ const MenuItem = ({ item }) => {
               <li key={child.key}>
                 <Link
                   to={child.link}
-                  className="block px-4 py-2 text-sm hover:text-indigo-600 hover:bg-gray-50"
+                  className="block px-4 py-2 text-sm hover:text-primary hover:bg-gray-50"
                   onClick={handleScrollToTop}
                 >
                   {t(`nav.${child.title}`)}
@@ -46,7 +52,7 @@ const MenuItem = ({ item }) => {
       ) : (
         <Link
           to={item.link}
-          className="block px-4 hover:text-indigo-600"
+          className="block px-4 hover:text-primary"
           onClick={handleScrollToTop}
         >
           {t(`nav.${item.title.toLowerCase()}`)}

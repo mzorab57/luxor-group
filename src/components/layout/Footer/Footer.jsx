@@ -29,8 +29,7 @@ const Footer = () => {
               Luxor Groups
             </h3>
             <p className="text-gray-300 leading-relaxed">
-              Creating stunning large-scale paintings and custom artwork that
-              transforms spaces and captivates audiences worldwide.
+             At Luxor, art is more than decoration—it's an expression of individuality.
             </p>
             <div className="flex space-x-4">
               <a

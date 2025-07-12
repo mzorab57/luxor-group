@@ -7,16 +7,16 @@ const MobileMenuItem = ({
   toggleSubmenu, 
   onClose 
 }) => (
-  <li>
+  <li className="relative">
     {item.children ? (
-      <div className="border-b border-gray-200">
+      <div className="border-b border-primary/20">
         <button
           onClick={() => toggleSubmenu(item.title)}
-          className="w-full px-4 py-3 flex items-center justify-between text-gray-700 hover:text-indigo-600"
+          className="w-full px-4 py-4 flex items-center justify-between text-gray-200 hover:text-primary transition-colors duration-300"
         >
-          <span className="font-medium">{item.title}</span>
+          <span className="font-medium text-base">{item.title}</span>
           <svg
-            className={`w-4 h-4 transition-transform duration-200 ${
+            className={`w-4 h-4 transition-transform duration-300 ${
               activeSubmenu === item.title ? "rotate-180" : ""
             }`}
             fill="none"
@@ -32,12 +32,12 @@ const MobileMenuItem = ({
           </svg>
         </button>
         {activeSubmenu === item.title && (
-          <ul className="bg-gray-50 py-2">
+          <ul className="bg-[#19160f]/90 py-2 border-l-2 border-primary/20">
             {item.children.map((child) => (
               <li key={child.title}>
                 <Link
                   to={child.link}
-                  className="block px-8 py-2 text-gray-600 hover:text-indigo-600"
+                  className="block px-8 py-3 text-gray-300 hover:text-primary hover:bg-primary/5 transition-all duration-300"
                   onClick={onClose}
                 >
                   {child.title}
@@ -50,7 +50,7 @@ const MobileMenuItem = ({
     ) : (
       <Link
         to={item.link}
-        className="block px-4 py-3 text-gray-700 hover:text-indigo-600 border-b border-gray-200"
+        className="block px-4 py-4 text-gray-200 hover:text-primary hover:bg-primary/5 border-b border-primary/20 transition-all duration-300"
         onClick={onClose}
       >
         {item.title}

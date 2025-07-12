@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
+    <nav className={`${isMobileMenuOpen ? "bg-[#19160f]" : ""}`}>
       <div className="container mx-auto px-4 font-medium">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
@@ -30,7 +30,11 @@ const Navbar = () => {
             data-aos-duration="800"
             data-aos-delay="100"
           >
-            <img src="/logo-removebg.png" alt="Logo" className="size-16 scale-125" />
+            <img
+              src="/logo-removebg.png"
+              alt="Logo"
+              className="size-16 scale-125"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -46,7 +50,7 @@ const Navbar = () => {
                   key={index}
                   data-aos="fade-down"
                   data-aos-duration="600"
-                  data-aos-delay={300 + (index * 100)}
+                  data-aos-delay={300 + index * 100}
                 >
                   <MenuItem item={item} />
                 </div>
@@ -106,7 +110,7 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <nav
-            className="md:hidden py-20"
+            className="md:hidden bg-[#19160f]"
             data-aos="fade-down"
             data-aos-duration="400"
           >
@@ -126,9 +130,6 @@ const Navbar = () => {
                   />
                 </div>
               ))}
-              {/* <li className="px-4 py-3 text-black bg-red-300">
-                <LanguageSwitcher  />
-              </li> */}
             </ul>
           </nav>
         )}

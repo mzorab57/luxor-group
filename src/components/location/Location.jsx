@@ -102,8 +102,8 @@ const Location = () => {
                     Our Address
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
-                    سلێمانی: شەقامی بەختیاری - سەرو سەنتەری گەنجان - قاتی
-                    سەرەوەی سیتی ستار بەیکەری
+                   Sulaymaniyah Bakhtiari Street - above Youth Center - upper floor of City Star Bakery
+                    
                   </p>
                 </div>
               </div>
