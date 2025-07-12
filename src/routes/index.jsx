@@ -60,7 +60,7 @@ const Router = () => {
         <Route path="project" element={<OurProject />} />
         <Route path="service" element={<Service />} />
         <Route path="dashboard" element={<Dashboard />} />
-        <Route path="contact" element={<Contact />} />
+        <Route path="contact" element={<Location />} />
       </Route>
       <Route path="*" element={<ErrorElement />} />
     </Routes>

@@ -1,7 +1,7 @@
 import React from "react";
 
 const AboutUs = () => (
-  <section className="py-16  relative">
+  <section id="about-section" className="py-16  relative">
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="flex flex-col  items-center gap-10">
         {/* Text */}
@@ -47,7 +47,7 @@ const AboutUs = () => (
         <img
           src="/assets/images/shape/shape-about-2.webp"
           alt="Luxor Art Showroom"
-          className="absolute left-0 animate-floatReverse"
+          className="absolute left-0 animate-floatReverse hidden lg:block"
         />
         {/* Optional: Decorative overlay */}
         <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>

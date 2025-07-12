@@ -5,11 +5,15 @@ import { useTranslation } from "react-i18next";
 const MenuItem = ({ item }) => {
   const { t } = useTranslation();
 
+  const handleScrollToTop = (e) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <li className="relative group">
       {item.children ? (
         <>
-          <span className="cursor-pointer flex items-center px-4 hover:text-indigo-600">
+          <span className="cursor-pointer  flex items-center px-4 hover:text-indigo-600">
             {t(`nav.${item.title.toLowerCase()}`)}
             <svg
               className="w-4 h-4 ml-2"
@@ -25,12 +29,13 @@ const MenuItem = ({ item }) => {
               />
             </svg>
           </span>
-          <ul className="hidden group-hover:block absolute left-0 w-48 bg-white shadow-lg rounded-md py-2">
+          <ul className="hidden  group-hover:block absolute left-0 w-48 bg-white shadow-lg rounded-md py-2">
             {item.children.map((child) => (
               <li key={child.key}>
                 <Link
                   to={child.link}
                   className="block px-4 py-2 text-sm hover:text-indigo-600 hover:bg-gray-50"
+                  onClick={handleScrollToTop}
                 >
                   {t(`nav.${child.title}`)}
                 </Link>
@@ -39,7 +44,11 @@ const MenuItem = ({ item }) => {
           </ul>
         </>
       ) : (
-        <Link to={item.link} className="block px-4 hover:text-indigo-600">
+        <Link
+          to={item.link}
+          className="block px-4 hover:text-indigo-600"
+          onClick={handleScrollToTop}
+        >
           {t(`nav.${item.title.toLowerCase()}`)}
         </Link>
       )}

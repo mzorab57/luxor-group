@@ -139,7 +139,7 @@ const Service = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative  bg-[#19160f] overflow-hidden "
+      className="relative  bg-[#19160f] overflow-hidden pb-32"
     >
       <PagesHeader
         img={"/assets/images/gallery/gallery1.webp"}
@@ -230,7 +230,7 @@ const Service = () => {
                       {service.title}
                     </span>
                     <button
-                      className="px-5 pr-9 py-2 border border-gray-400  text-gray-300 rounded-full font-medium bg-black/40 hover:bg-primary hover:text-[#19160f] transition hover-target"
+                      className="px-5 pr-9 py-2 bg-gradient-to-br from-primary/10 to-transparent  border-primary/20 rounded-full font-medium  hover:bg-primary hover:text-[#19160f] transition hover-target"
                       style={{ backdropFilter: "blur(0px)" }}
                       onClick={() => setSelectedService(service)}
                     >
@@ -278,8 +278,8 @@ const Service = () => {
         </div>
         {/* Modal */}
         {selectedService && (
-          <div className="fixed inset-0  z-50 flex items-center justify-center bg-black/70 animate-fadeIn">
-            <div className=" border border-gray-700  bg-black/80 rounded-3xl shadow-2xl max-w-3xl w-full  py-5 px-3 mx-2 relative">
+          <div onClick={() => setSelectedService(null)} className="fixed inset-0  z-50 flex items-center justify-center bg-black/70 animate-fadeIn">
+            <div    className="  bg-[#19160f] rounded shadow-2xl max-w-3xl w-full  py-5 px-3 mx-2 relative">
               <button
                 className="absolute top-4 right-4 text-3xl text-gray-800 hover:text-gray-700"
                 onClick={() => setSelectedService(null)}
@@ -291,7 +291,7 @@ const Service = () => {
               <img
                 src={selectedService.image}
                 alt={selectedService.title}
-                className="size-full  rounded-2xl shadow-lg mx-auto mb-4 p-0"
+                className="size-full  rounded shadow-lg mx-auto mb-4 p-0"
               />
               <h2 className="text-2xl font-bold text-primary mb-4 text-start">
                 {selectedService.title}

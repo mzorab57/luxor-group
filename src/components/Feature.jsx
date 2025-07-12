@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Example icons as SVGs (replace with your own or use react-icons)
 const icons = [
@@ -44,10 +45,10 @@ const icons = [
 ];
 
 const features = [
-  { title: "Smart Work", icon: icons[0], link: "/service-d-pvc-panels" },
-  { title: "Unique Design", icon: icons[1], link: "/service-d-pvc-panels" },
-  { title: "Skilled Team", icon: icons[2], link: "/service-d-pvc-panels" },
-  { title: "Best Pricing", icon: icons[3], link: "/service-d-pvc-panels" },
+  { title: "Smart Work", icon: icons[0], link: "/gallery" },
+  { title: "Unique Design", icon: icons[1], link: "/gallery" },
+  { title: "Skilled Team", icon: icons[2], link: "/gallery" },
+  { title: "Best Pricing", icon: icons[3], link: "/gallery" },
 ];
 
 const Feature = () => (
@@ -71,7 +72,7 @@ const Feature = () => (
               {feature.icon}
             </span>
             <h5 className="text-lg font-semibold text-[#2E2A20] group-hover:text-white   transition-all duration-200 ease-in">
-              <a href={feature.link}>{feature.title}</a>
+              <Link onClick={() => window.scrollTo(0, 0)} to={feature.link}>{feature.title}</Link>
             </h5>
           </div>
         ))}

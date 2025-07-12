@@ -1,15 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { MdOutlineLocationOn, MdOutlinePhone  } from "react-icons/md";
+import { MdOutlineLocationOn, MdOutlinePhone } from "react-icons/md";
 import { TbClockHour5 } from "react-icons/tb";
 const Location = () => {
   return (
     <section className="relative py-32 bg-[#19160f] overflow-hidden">
       {/* Background Pattern Overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-5 bg-cover"
-       
-      />
+      <div className="absolute inset-0 pointer-events-none opacity-5 bg-cover" />
 
       {/* Decorative Elements */}
       <div className="absolute inset-0">
@@ -69,10 +66,19 @@ const Location = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full rounded-xl"
-                
               />
               {/* Map Overlay */}
               <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+              <div className="absolute bottom-4 right-4 z-20">
+                <a
+                  href="https://maps.app.goo.gl/wi4PjH9r69uDBria8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-primary text-[#19160f] rounded-full font-medium shadow-lg hover:bg-primary/90 transition-colors"
+                >
+                  View on Google Maps
+                </a>
+              </div>
             </div>
           </motion.div>
 
@@ -87,15 +93,17 @@ const Location = () => {
             <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-2xl transition-all p-6 duration-300 group">
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                  <span className="text-2xl"><MdOutlineLocationOn color="white" /></span>
+                  <span className="text-2xl">
+                    <MdOutlineLocationOn color="white" />
+                  </span>
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-white mb-2">
                     Our Address
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
-                    صلاح الدين - قضاء بيجي - الحي العسكري -قرب دائرة توزيع
-                    كهرباء بيجي
+                    سلێمانی: شەقامی بەختیاری - سەرو سەنتەری گەنجان - قاتی
+                    سەرەوەی سیتی ستار بەیکەری
                   </p>
                 </div>
               </div>
@@ -105,7 +113,9 @@ const Location = () => {
             <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-2xl p-6 transition-all duration-300 group">
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                  <span className="text-2xl"><TbClockHour5 color="white" /></span>
+                  <span className="text-2xl">
+                    <TbClockHour5 color="white" />
+                  </span>
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-white mb-2">
@@ -124,7 +134,9 @@ const Location = () => {
             <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-2xl p-6 transition-all duration-300 group">
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                  <span className="text-2xl"><MdOutlinePhone color="white" /></span>
+                  <span className="text-2xl">
+                    <MdOutlinePhone color="white" />
+                  </span>
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-white mb-2">
@@ -137,7 +149,7 @@ const Location = () => {
                     </p>
                     <p className="flex items-center">
                       <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-                      Website: al-dikkaengineering.com
+                      Email: info@luxorgroups.com
                     </p>
                   </div>
                 </div>
@@ -154,9 +166,17 @@ const Location = () => {
           className="grid md:grid-cols-2 gap-8 mt-4 lg:mt-0"
         >
           {/* Visit Us */}
-          <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-2xl p-8 text-center">
-            <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-3xl"></span>
+          <div
+            className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-2xl p-8 text-center cursor-pointer hover:shadow-xl transition-shadow"
+            onClick={() => {
+              window.location.href = "/gallery";
+              setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }, 100);
+            }}
+          >
+            <div className="w-16 h-16 hover:bg-primary bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl text-gray-200"></span>
             </div>
             <h3 className="text-2xl font-bold text-white mb-3">
               Visit Our Gallery
@@ -171,19 +191,25 @@ const Location = () => {
           </div>
 
           {/* Get Directions */}
-          <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-2xl p-8 text-center">
-            <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div
+            onClick={() => {
+              window.location.href = "/service";
+              setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }, 100);
+            }}
+           className="bg-gradient-to-br  cursor-pointer from-primary/10 to-transparent border border-primary/20 rounded-2xl p-8 text-center">
+            <div className="w-16 h-16  bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-3xl"></span>
             </div>
             <h3 className="text-2xl font-bold text-white mb-3">
-              Get Directions
+              Get Service
             </h3>
             <p className="text-gray-300 mb-6">
-              Need help finding us? Get detailed directions to our location and
-              plan your visit with ease.
+             We pride ourselves on offering not only a diverse collection of stunning artworks but also the flexibility to bring your vision to life.
             </p>
             <button className="px-6 py-3 border border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-[#19160f] transition-colors">
-              Get Directions
+              Get Service
             </button>
           </div>
         </motion.div>

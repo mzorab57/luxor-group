@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -138,7 +139,6 @@ const ServiceSection = () => {
       ref={sectionRef}
       className="relative py-32 bg-[#19160f] overflow-hidden "
     >
-       
       {/* Damask/Floral Pattern Overlay */}
       <div
         className="absolute inset-0 pointer-events-none opacity-5 bg-cover"
@@ -147,11 +147,11 @@ const ServiceSection = () => {
           backgroundRepeat: "repeat",
         }}
       />
-       <img 
-      src="/assets/images/shape/shape-work-3.png" 
-      alt="lamp" 
-      className='absolute top-0 right-20  animate-lamp-float hidden  lg:block'
-    />
+      <img
+        src="/assets/images/shape/shape-work-3.png"
+        alt="lamp"
+        className="absolute top-0 right-20  animate-lamp-float hidden  lg:block"
+      />
       {/* Custom Cursor */}
       <div
         ref={cursorRef}
@@ -177,9 +177,13 @@ const ServiceSection = () => {
               Services We're Offering
             </h2>
           </div>
-          <button className="mt-4 md:mt-0 border border-primary text-primary px-6 py-2 rounded-full font-medium hover:bg-primary hover:text-[#19160f] transition">
+          <Link
+            onClick={() => window.scrollTo(0, 0)}
+            to={"/service"}
+            className="mt-4 md:mt-0 border w-fit border-primary text-primary px-6 py-2 rounded-full font-medium hover:bg-primary hover:text-[#19160f] transition"
+          >
             View All Service
-          </button>
+          </Link>
         </div>
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 group ">
@@ -210,7 +214,7 @@ const ServiceSection = () => {
                   {service.title}
                 </span>
                 <button
-                  className="px-5 pr-9 py-2 border border-gray-400  text-gray-300 rounded-full font-medium bg-black/40 hover:bg-primary hover:text-[#19160f] transition hover-target"
+                  className="px-5 pr-9 py-2 bg-gradient-to-br from-primary/10 to-transparent  border-primary/20 text-white rounded-full font-medium bg-black/40 hover:bg-primary hover:text-[#19160f] transition hover-target"
                   style={{ backdropFilter: "blur(0px)" }}
                   onClick={() => setSelectedService(service)}
                 >
@@ -223,7 +227,7 @@ const ServiceSection = () => {
         {/* Modal */}
         {selectedService && (
           <div className="fixed inset-0  z-50 flex items-center justify-center bg-black/70 animate-fadeIn">
-            <div className=" border border-gray-700  bg-black/80 rounded-3xl shadow-2xl max-w-3xl w-full  py-5 px-3 mx-2 relative">
+            <div className=" border border-gray-700  bg-black/80 rounded shadow-2xl max-w-3xl w-full  py-5 px-3 mx-2 relative">
               <button
                 className="absolute top-4 right-4 text-3xl text-gray-800 hover:text-gray-700"
                 onClick={() => setSelectedService(null)}
@@ -235,7 +239,7 @@ const ServiceSection = () => {
               <img
                 src={selectedService.image}
                 alt={selectedService.title}
-                className="size-full  rounded-2xl shadow-lg mx-auto mb-4 p-0"
+                className="size-full shadow-lg mx-auto mb-4 p-0"
               />
               <h2 className="text-2xl font-bold text-primary mb-4 text-start">
                 {selectedService.title}

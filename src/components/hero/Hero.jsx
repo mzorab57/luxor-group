@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import AOS from "aos";
+import { Link } from "react-router-dom";
 
 const slides = [
   {
@@ -40,8 +41,10 @@ const Hero = () => {
   const goToSlide = (idx) => setCurrent(idx);
 
   return (
-    <section className="relative w-full h-screen min-h-[800px]   overflow-hidden">
-      
+    <section
+      id="hero-section"
+      className="relative w-full h-screen min-h-[800px]   overflow-hidden"
+    >
       {/* Animated Background Slider */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden ">
         <div
@@ -134,24 +137,32 @@ const Hero = () => {
               data-aos-delay="600"
               data-aos-duration="800"
             >
-              <a
-                href="/services"
+              <Link
+                to="/service"
+                onClick={() => window.scrollTo(0, 0)}
                 className="px-8 py-4 bg-[#DF9E42] text-white rounded-full hover:bg-[#c88a35] transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 data-aos="zoom-in"
                 data-aos-delay="800"
                 data-aos-duration="600"
               >
                 Our Services
-              </a>
-              <a
-                href="/about"
+              </Link>
+              <Link
+                to="#about-section"
+                onClick={(e) => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  setTimeout(() => {
+                    const section = document.getElementById("about-section");
+                    if (section) section.scrollIntoView({ behavior: "smooth" });
+                  }, 400);
+                }}
                 className="px-8 py-4 border-2 border-[#DF9E42] text-[#DF9E42] rounded-full hover:bg-[#DF9E42] hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 data-aos="zoom-in"
                 data-aos-delay="1000"
                 data-aos-duration="600"
               >
                 Discover More
-              </a>
+              </Link>
             </div>
           </div>
 

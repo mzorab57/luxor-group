@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <nav>
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 font-medium">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link
@@ -30,7 +30,7 @@ const Navbar = () => {
             data-aos-duration="800"
             data-aos-delay="100"
           >
-            <img src="/logo.png" alt="Logo" className="h-8 w-auto" />
+            <img src="/logo-removebg.png" alt="Logo" className="size-16 scale-125" />
           </Link>
 
           {/* Desktop Navigation */}

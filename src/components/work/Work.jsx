@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Stack from "../Stack";
+import { Link } from "react-router-dom";
 
 
 const works = [
@@ -107,6 +108,12 @@ const Work = () => {
             individuality. Experience the beauty of authentic, handcrafted
             paintings designed to inspire and captivate.
           </p>
+          <div className='  text-start pt-5'>
+
+              <Link onClick={(e) => window.scrollTo(0, 0)} to="/gallery" className="border  w-full border-primary hover:text-black hover:bg-primary font-medium   text-primary px-4 py-2  rounded-full hover:bg-primary-dark transition-colors text-sm md:text-base">
+              View All Work
+            </Link>
+          </div>
         </div>
 
         {/* Stack Gallery */}

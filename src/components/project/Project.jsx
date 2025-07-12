@@ -73,7 +73,7 @@ const Project = () => {
           </motion.h2>
           <div className=' w-full lg:text-end text-start pt-5'>
 
-              <Link to="/project" className="border  w-full border-primary hover:text-black hover:bg-primary font-medium   text-primary px-4 py-2  rounded-full hover:bg-primary-dark transition-colors text-sm md:text-base">
+              <Link onClick={window.scrollTo(0, 0)} to="/project" className="border  w-full border-primary hover:text-black hover:bg-primary font-medium   text-primary px-4 py-2  rounded-full hover:bg-primary-dark transition-colors text-sm md:text-base">
               View All Projects
             </Link>
           </div>

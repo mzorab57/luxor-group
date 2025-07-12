@@ -1,8 +1,9 @@
 import React from "react";
 import { MdOutlineEmail, MdOutlinePhone, MdOutlineLocationOn   } from "react-icons/md";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
-    <footer className="relative py-20 bg-[#19160f] overflow-hidden">
+    <footer className="relative z-[0] py-20 bg-[#19160f] overflow-hidden ">
       {/* Background Pattern Overlay */}
       <div
         className="absolute inset-0 pointer-events-none opacity-10 bg-cover"
@@ -21,11 +22,11 @@ const Footer = () => {
 
       <div className="relative z-10 container mx-auto max-w-6xl px-4">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {/* Company Info */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-primary mb-4">
-              Art Gallery
+              Luxor Groups
             </h3>
             <p className="text-gray-300 leading-relaxed">
               Creating stunning large-scale paintings and custom artwork that
@@ -60,40 +61,34 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="/about"
+                <Link
+                  to="/#about-section"
                   className="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center group"
                 >
                   <span className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/services"
+                <Link
+                onClick={() => window.scrollTo(0, 0)}
+                  to="/service"
                   className="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center group"
                 >
                   <span className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
                   Services
-                </a>
+                </Link>
               </li>
+             
               <li>
-                <a
-                  href="/contact"
-                  className="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center group"
-                >
-                  <span className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/gallery"
+                <Link
+                onClick={() => window.scrollTo(0, 0)}
+                  to="/gallery"
                   className="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center group"
                 >
                   <span className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
                   Gallery
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -106,49 +101,24 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="text-gray-300 flex items-center">
                 <span className="w-2 h-2 bg-primary/60 rounded-full mr-3"></span>
-                Custom Large-Scale Paintings
+               Custom Large-Scale Painting Production
               </li>
               <li className="text-gray-300 flex items-center">
                 <span className="w-2 h-2 bg-primary/60 rounded-full mr-3"></span>
-                Frame Selection & Framing
+                Frame Selection & Custom Framing
               </li>
               <li className="text-gray-300 flex items-center">
                 <span className="w-2 h-2 bg-primary/60 rounded-full mr-3"></span>
-                Bulk Production
+                Bulk Painting Production
               </li>
               <li className="text-gray-300 flex items-center">
                 <span className="w-2 h-2 bg-primary/60 rounded-full mr-3"></span>
-                Art Installation
+               Art Installation & Setup
               </li>
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white mb-4">
-              Contact Info
-            </h4>
-            <div className="space-y-3">
-              <div className="flex items-center text-gray-300">
-                <span className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                  <span className="text-primary text-sm"><MdOutlineEmail /></span>
-                </span>
-                <span>info@luxorgroups.com</span>
-              </div>
-              <div className="flex items-center text-gray-300">
-                <span className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                  <span className="text-primary text-sm"><MdOutlinePhone /></span>
-                </span>
-                <span>+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center text-gray-300">
-                <span className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                  <span className="text-primary text-sm"><MdOutlineLocationOn  /></span>
-                </span>
-                <span>123 Art Street, City</span>
-              </div>
-            </div>
-          </div>
+        
         </div>
 
         {/* Newsletter Section */}
