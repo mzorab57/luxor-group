@@ -6,7 +6,7 @@ import Main from "../components/layout/Main";
 
 import Gallery from "../pages/Gallery";
 import Service from "../pages/Service";
-import Contact from "../pages/Contact";
+// import Contact from "../pages/Contact";
 
 
 // Components
@@ -17,8 +17,10 @@ import ServiceSection from "../components/service/ServiceSection";
 import Work from "../components/work/Work";
 import Project from "../components/project/Project";
 import Location from "../components/location/Location";
-import Dashboard from "../components/dashboard/Dashboard";
+
 import OurProject from "../pages/OurProject";
+import MainDashboard from "../components/mainDashboard/MainDashboard";
+import OurVideos from "../pages/OurVideos ";
 
 
 const ErrorElement = () => (
@@ -58,8 +60,9 @@ const Router = () => {
         />
         <Route path="gallery" element={<Gallery />} />
         <Route path="project" element={<OurProject />} />
+        <Route path="video" element={<OurVideos />} />
         <Route path="service" element={<Service />} />
-        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="dashboard" element={<MainDashboard />} />
         <Route path="contact" element={<Location />} />
       </Route>
       <Route path="*" element={<ErrorElement />} />

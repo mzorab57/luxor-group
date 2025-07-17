@@ -1,55 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PagesHeader from "../components/ui/PagesHeader";
 
-const projects = [
-  {
-    id: 25,
-    images: [
-      "/assets/images/gallery/gallery1.webp",
-      "/assets/images/gallery/gallery2.webp",
-      "/assets/images/gallery/gallery3.webp",
-      "/assets/images/gallery/gallery4.webp",
-      "/assets/images/gallery/gallery1.webp",
-      "/assets/images/gallery/gallery2.webp",
-      "/assets/images/gallery/gallery3.webp",
-      "/assets/images/gallery/gallery4.webp",
-    ],
-    qr_code: "3de",
-    title: "io",
-    description: "Sulaymaniyah, KRG kjhu ijuhui iuhui",
-    category: "thsrtrth",
-    size: "33",
-    price: "0.00",
-    sku: "TEST0012",
-    orientation: "ff",
-    artist_name: "hndren",
-    upload_date: "2025-07-11T08:23:00.000Z",
-  },
-  {
-    id: 26,
-    images: [
-      "/assets/images/gallery/gallery1.webp",
-      "/assets/images/gallery/gallery2.webp",
-      "/assets/images/gallery/gallery3.webp",
-      "/assets/images/gallery/gallery4.webp",
-    ],
-    qr_code: "e541d",
-    title: "jo",
-    description: "asdcfa ecfad vc adzv csd azv  adzvc",
-    category: "Test2",
-    size: "45",
-    price: "41.00",
-    sku: "TEST0012",
-    orientation: "modrn",
-    artist_name: "hndren",
-    upload_date: "2025-07-11T08:26:00.000Z",
-  },
-];
+const API_URL = "http://localhost/project-api/project/get.php";
 
 const OurProject = () => {
+  const [projects, setProjects] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImages, setModalImages] = useState([]);
   const [currentImgIdx, setCurrentImgIdx] = useState(0);
+
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+
+  const fetchProjects = async () => {
+    try {
+      const res = await fetch(API_URL);
+      const data = await res.json();
+
+      const fixed = data.map((item) => ({
+        ...item,
+        images: Array.isArray(item.images)
+          ? item.images
+          : JSON.parse(item.images || "[]"),
+      }));
+
+      console.log("Projects:", fixed);
+      setProjects(fixed);
+    } catch (error) {
+      console.error("Error fetching projects:", error);
+    }
+  };
 
   const openModal = (images, idx) => {
     setModalImages(images);
@@ -64,6 +45,7 @@ const OurProject = () => {
       prev === 0 ? modalImages.length - 1 : prev - 1
     );
   };
+
   const showNext = () => {
     setCurrentImgIdx((prev) =>
       prev === modalImages.length - 1 ? 0 : prev + 1
@@ -71,7 +53,7 @@ const OurProject = () => {
   };
 
   return (
-    <div className=" bg-[#19160f] relative ">
+    <div className="bg-[#19160f] relative">
       <PagesHeader
         img={"/assets/images/gallery/gallery1.webp"}
         title={"Projects"}
@@ -88,34 +70,17 @@ const OurProject = () => {
             className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded shadow-lg overflow-hidden flex flex-col md:flex-row hover:scale-[1.02] transition-transform duration-300"
           >
             <img
-              src={project.images[0]}
+              src={`http://localhost/project-api/uploads/project/${project.images[0]}`}
               alt={project.title}
               className="w-full md:w-1/2 object-cover cursor-pointer"
-              onClick={() => openModal(project.images, 0)}
+              onClick={() => openModal(project.images.map(img => `http://localhost/project-api/uploads/project/${img}`), 0)}
             />
-            <div className="p-6 flex flex-col justify-between ">
+            <div className="p-6 flex flex-col justify-between">
               <div>
                 <h3 className="text-xl font-semibold text-gray-200 mb-2">
                   {project.title}
                 </h3>
                 <p className="text-gray-300 mb-4">{project.description}</p>
-                {/* <div className="flex flex-wrap gap-2 text-sm text-gray-300 mb-2">
-                  <span className="bg-gradient-to-br from-primary/10 to-transparent  border border-primary/20 px-2 py-1 rounded">
-                    Category: {project.category}
-                  </span>
-                  <span className="bg-gradient-to-br from-primary/10 to-transparent  border border-primary/20 px-2 py-1 rounded">
-                    Size: {project.size} m²
-                  </span>
-                  <span className="bg-gradient-to-br from-primary/10 to-transparent  border border-primary/20 px-2 py-1 rounded">
-                    Price: ${project.price}
-                  </span>
-                  <span className="bg-gradient-to-br from-primary/10 to-transparent  border border-primary/20 px-2 py-1 rounded">
-                    SKU: {project.sku}
-                  </span>
-                  <span className="bg-gradient-to-br from-primary/10 to-transparent  border border-primary/20 px-2 py-1 rounded">
-                    Orientation: {project.orientation}
-                  </span>
-                </div> */}
                 <span className="text-xs text-gray-400">
                   Artist: {project.artist_name}
                 </span>
@@ -124,10 +89,15 @@ const OurProject = () => {
                 {project.images.slice(1).map((img, idx) => (
                   <img
                     key={idx}
-                    src={img}
+                    src={`http://localhost/project-api/uploads/project/${img}`}
                     alt={project.title + " preview " + (idx + 2)}
                     className="w-12 h-12 object-cover rounded border border-primary/30 cursor-pointer transition-transform hover:scale-110"
-                    onClick={() => openModal(project.images, idx + 1)}
+                    onClick={() =>
+                      openModal(
+                        project.images.map(i => `http://localhost/project-api/uploads/project/${i}`),
+                        idx + 1
+                      )
+                    }
                   />
                 ))}
               </div>
@@ -135,6 +105,7 @@ const OurProject = () => {
           </div>
         ))}
       </div>
+
       {modalOpen && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
           <div className="relative bg-[#19160f] rounded-lg shadow-2xl p-6 max-w-xl w-full flex flex-col items-center">
@@ -152,13 +123,13 @@ const OurProject = () => {
             />
             <div className="flex justify-between max-w-md w-full mb-4">
               <button
-                className="px-4 py-2 bg-gradient-to-br from-primary/10 to-transparent  border-primary/20 text-gray-200 rounded hover:bg-primary/50"
+                className="px-4 py-2 bg-gradient-to-br from-primary/10 to-transparent border-primary/20 text-gray-200 rounded hover:bg-primary/50"
                 onClick={showPrev}
               >
                 Previous
               </button>
               <button
-                className="px-4 py-2 bg-gradient-to-br from-primary/10 to-transparent  border-primary/20 text-gray-200 rounded hover:bg-primary/50"
+                className="px-4 py-2 bg-gradient-to-br from-primary/10 to-transparent border-primary/20 text-gray-200 rounded hover:bg-primary/50"
                 onClick={showNext}
               >
                 Next
