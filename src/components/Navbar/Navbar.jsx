@@ -70,7 +70,7 @@ const Navbar = () => {
               data-aos-duration="600"
               data-aos-delay="400"
             >
-              <LanguageSwitcher />
+              {/* <LanguageSwitcher /> */}
             </div>
 
             {/* Mobile Menu Button */}

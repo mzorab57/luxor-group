@@ -18,7 +18,7 @@ const Gallery = () => {
     try {
       const response = await fetch(API_URL);
       const data = await response.json();
-  
+
       // 👇 ئەمە دڵنیابە کە images array ـە!
       const fixed = data.map((item) => ({
         ...item,
@@ -26,7 +26,7 @@ const Gallery = () => {
           ? item.images
           : JSON.parse(item.images || "[]"),
       }));
-  
+
       console.log("Fixed Gallery:", fixed); // test
       setGallery(fixed);
     } catch (error) {
@@ -47,7 +47,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#19160f]">
+    <div className="min-h-screen bg-[#19160f] ">
       <PagesHeader
         img={"/assets/images/gallery/page-header.jpg"}
         title={"Gallery"}
@@ -74,8 +74,10 @@ const Gallery = () => {
             </div>
             <div className="p-4 flex justify-between">
               <div>
-              <h3 className="text-xl font-bold text-white">{item.title}</h3>
-              <p className="text-gray-300 mb-4 line-clamp-1">{item.description}</p>
+                <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                <p className="text-gray-300 mb-4 line-clamp-1">
+                  {item.description}
+                </p>
               </div>
               <button
                 onClick={() => openModal(item)}
@@ -97,7 +99,7 @@ const Gallery = () => {
           <motion.div
             initial={{ scale: 0.95 }}
             animate={{ scale: 1 }}
-            className="bg-[#23201a] max-w-3xl w-full rounded-lg overflow-y-auto relative p-6 border border-primary/20"
+            className="bg-[#23201a] h-[42rem] max-w-3xl w-full rounded-lg overflow-y-auto relative p-6 border border-primary/20"
           >
             <button
               onClick={closeModal}
@@ -112,8 +114,21 @@ const Gallery = () => {
               <img
                 src={`http://localhost/project-api/uploads/gallery/${selectedImage}`}
                 alt={selectedItem.title}
-                className="w-full h-full object-contain rounded"
+                className="w-full h-full object-contain rounded relative"
               />
+              <div className="flex   absolute top-0 justify-between w-full">
+                <span className=" lg:hidden bg-gradient-to-br from-primary/20 to-transparent  border-primary/80   px-2.5  rounded font-bold text-white ">
+                  Size:  <span className="text-sm  font-normal">
+                  {selectedItem.size} 
+                  </span>{" "} 
+                </span>
+                <p className="text-gray-300 lg:hidden  font-bold bg-gradient-to-br from-primary/20 to-transparent  border-primary/80   px-1 md:px-2 text-sm  ">
+                  Category:{" "}
+                  <span className="text-sm  font-normal">
+                    {selectedItem.category}
+                  </span>{" "}
+                </p>
+              </div>
             </div>
             <div className="flex gap-2 overflow-x-auto mb-4">
               {selectedItem.images.map((img, i) => (
@@ -130,7 +145,21 @@ const Gallery = () => {
                 />
               ))}
             </div>
-            <p className="text-gray-300">{selectedItem.description}</p>
+            <div className="flex flex-col-reverse lg:flex-row justify-between  gap-x-2  ">
+              {/* <p className="text-gray-300 font-bold bg-gradient-to-br from-primary/10 to-transparent  border-primary/20 border px-1 md:px-2 text-sm  ">Art.Name: <span className="text-sm font-normal">{selectedItem.artist_name}</span> </p>
+              <p className="text-gray-300 hidden lg:block font-bold bg-gradient-to-br from-primary/10 to-transparent  border-primary/20 border px-1 md:px-2 text-sm  ">Category: <span className="text-sm  font-normal">{selectedItem.category}</span> </p> */}
+              <div className="">
+                <span className="text-gray-200 font-bold">Description </span><p className="text-gray-300 text-sm font-medium">{selectedItem.description}</p>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <p className="text-gray-300 font-bold bg-gradient-to-br from-primary/20 to-transparent  border-primary/80  px-1 md:px-2 w-fit lg:w-full  ">Art.Name: <span className="text-sm font-normal">{selectedItem.artist_name}</span> </p>
+                <div className="flex gap-1.5">
+              <p className="text-gray-300 hidden lg:block font-bold bg-gradient-to-br from-primary/20 to-transparent  border-primary/80  px-1 md:px-2   ">Category: <span className="text-sm  font-normal">{selectedItem.category}</span> </p>
+              <p className="text-gray-300 hidden lg:block font-bold bg-gradient-to-br from-primary/20 to-transparent  border-primary/80  px-1 md:px-2   ">Size: <span className="text-sm  font-normal">{selectedItem.size}</span> </p>
+                </div>
+              </div>
+             
+            </div>
           </motion.div>
         </motion.div>
       )}

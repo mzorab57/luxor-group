@@ -52,13 +52,12 @@ const features = [
 ];
 
 const Feature = () => (
-  <section className="py-12 bg-white">
-    <div className="container mx-auto px-4">
-      <div className="flex flex-wrap justify-center gap-8 mb-8">
+  <section className="py-12 bg-white container mx-auto px-4  ">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 place-self-center max-w-[1200px] w-full mb-8">
         {features.map((feature, idx) => (
           <div
             key={feature.title}
-            className="flex items-center justify-center bg-yellow-800/20 group hover:bg-primary  rounded-full  py-6 min-w-[260px] shadow-sm relative overflow-hidden"
+            className="flex items-center justify-center bg-yellow-800/20 group hover:bg-primary lg:max-w-[260px]  rounded-full  lg:py-6 py-4  shadow-sm relative overflow-hidden"
             data-aos="fade-up"
             data-aos-delay={100 + idx * 200}
             data-aos-duration="1000"
@@ -68,10 +67,10 @@ const Feature = () => (
               alt="bg"
               className="absolute size-full -z-10 opacity-25 rounded-full"
             />
-            <span className="flex items-center justify-center w-14 h-14 rounded-full bg-white shadow mr-4 group-hover:bg-black/80 group-hover:scale-110   transition-all duration-500 ease-in">
+            <span className="flex items-center justify-center lg:size-14 size-10   rounded-full bg-white shadow mr-1   lg:mr-4 group-hover:bg-black/80 group-hover:scale-110   transition-all duration-500 ease-in">
               {feature.icon}
             </span>
-            <h5 className="text-lg font-semibold text-[#2E2A20] group-hover:text-white   transition-all duration-200 ease-in">
+            <h5 className="lg:text-lg  whitespace-nowrap font-semibold text-[#2E2A20] group-hover:text-white   transition-all duration-200 ease-in">
               <Link onClick={() => window.scrollTo(0, 0)} to={feature.link}>{feature.title}</Link>
             </h5>
           </div>
@@ -81,7 +80,7 @@ const Feature = () => (
         className="border-t border-[#DF9E42]/30 w-full mx-auto"
         style={{ maxWidth: 1200 }}
       />
-    </div>
+    
   </section>
 );
 

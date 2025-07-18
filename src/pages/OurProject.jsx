@@ -53,7 +53,7 @@ const OurProject = () => {
   };
 
   return (
-    <div className="bg-[#19160f] relative">
+    <div className="bg-[#19160f] relative overflow-hidden">
       <PagesHeader
         img={"/assets/images/gallery/gallery1.webp"}
         title={"Projects"}
@@ -63,29 +63,27 @@ const OurProject = () => {
         <div className="absolute bottom-20 right-20 w-32 h-32 bg-primary/15 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-primary/20 rounded-full blur-2xl"></div>
       </div>
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 max-w-7xl mx-auto py-12 relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto py-12 relative z-10 lg:px-2">
         {projects.map((project) => (
           <div
             key={project.id}
-            className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded shadow-lg overflow-hidden flex flex-col md:flex-row hover:scale-[1.02] transition-transform duration-300"
+            className="bg-gradient-to-br place-self-center w-[22rem] lg:size-full from-primary/10 to-transparent border border-primary/20 rounded shadow-lg overflow-hidden flex flex-col lg:flex-row hover:scale-[1.02] transition-transform duration-300"
           >
             <img
               src={`http://localhost/project-api/uploads/project/${project.images[0]}`}
               alt={project.title}
-              className="w-full md:w-1/2 object-cover cursor-pointer"
+              className="w-full lg:h-full h-[18rem]   lg:w-1/2  cursor-pointer"
               onClick={() => openModal(project.images.map(img => `http://localhost/project-api/uploads/project/${img}`), 0)}
             />
-            <div className="p-6 flex flex-col justify-between">
-              <div>
-                <h3 className="text-xl font-semibold text-gray-200 mb-2">
+            <div className="p-2 flex flex-col justify-between">
+              <div className="">
+                <h3 className="text-lg lg:text-xl  font-semibold text-gray-200 ">
                   {project.title}
                 </h3>
-                <p className="text-gray-300 mb-4">{project.description}</p>
-                <span className="text-xs text-gray-400">
-                  Artist: {project.artist_name}
-                </span>
+                <p className="text-gray-300 text-sm lg:text-lg mb-2">{project.description}</p>
+                
               </div>
-              <div className="mt-4 flex gap-2 overflow-x-auto rounded-lg bg-[#23201a]/70 p-2 scrollbar-hide">
+              <div className="lg:mt-4 flex gap-2 overflow-x-auto rounded-lg bg-[#23201a]/70 p-2 scrollbar-hide">
                 {project.images.slice(1).map((img, idx) => (
                   <img
                     key={idx}
@@ -108,7 +106,7 @@ const OurProject = () => {
 
       {modalOpen && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="relative bg-[#19160f] rounded-lg shadow-2xl p-6 max-w-xl w-full flex flex-col items-center">
+          <div className="relative bg-[#19160f] max-w-2xl rounded-lg shadow-2xl p-6  w-full flex flex-col items-center">
             <button
               className="absolute top-2 right-2 text-gray-300 hover:text-white text-2xl"
               onClick={closeModal}
@@ -119,7 +117,7 @@ const OurProject = () => {
             <img
               src={modalImages[currentImgIdx]}
               alt="Project Large"
-              className="w-full max-h-[400px] object-contain rounded mb-4"
+              className="w-full max-h-[500px] object-contain rounded mb-4"
             />
             <div className="flex justify-between max-w-md w-full mb-4">
               <button
