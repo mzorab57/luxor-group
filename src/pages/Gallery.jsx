@@ -47,7 +47,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#19160f] ">
+    <div className="min-h-screen bg-[#19160f]  ">
       <PagesHeader
         img={"/assets/images/gallery/page-header.jpg"}
         title={"Gallery"}
@@ -63,7 +63,7 @@ const Gallery = () => {
             key={item.id}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-lg overflow-hidden shadow hover:scale-105 transition-transform duration-300"
+            className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded overflow-hidden shadow hover:scale-105 transition-transform duration-300 my-10"
           >
             <div className="relative h-72 ">
               <img
@@ -72,7 +72,7 @@ const Gallery = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="p-4 flex justify-between">
+            <div className="p-2 flex justify-between">
               <div>
                 <h3 className="text-xl font-bold text-white">{item.title}</h3>
                 <p className="text-gray-300 mb-4 line-clamp-1">
@@ -81,7 +81,7 @@ const Gallery = () => {
               </div>
               <button
                 onClick={() => openModal(item)}
-                className="px-4 size-fit h-full place-self-end whitespace-nowrap  py-2 text-gray-200 text-sm border border-primary/30 rounded hover:bg-primary transition"
+                className="px-2 size-fit h-full place-self-center whitespace-nowrap  py-1 text-gray-200 text-sm border border-primary/30 rounded hover:bg-primary transition"
               >
                 View Details
               </button>

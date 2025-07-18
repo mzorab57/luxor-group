@@ -46,11 +46,11 @@ const OurVideos = () => {
         <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-primary/20 rounded-full blur-2xl"></div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-3 px-4 gap-8 max-w-7xl w-full mx-auto py-12 relative z-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-3 px-4 gap-8 max-w-7xl rounded w-full mx-auto py-12 relative z-10">
         {videos.map((video, index) => (
           <div
             key={video.id}
-            className="group relative aspect-[3/4] h-96 lg:h-full w-full  place-self-center overflow-hidden"
+            className="group relative aspect-[3/4] h-96 lg:h-full w-full  place-self-center rounded overflow-hidden"
           >
             {/* Card Image */}
             <div className="absolute inset-0 border-2  border-primary/80 overflow-hidden">

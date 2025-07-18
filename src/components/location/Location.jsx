@@ -58,7 +58,7 @@ const Location = () => {
           >
             <div className="relative overflow-hidden p-6 bg-gradient-to-br from-primary/10 to-transparent  border-primary/20 rounded-2xl mb-4 mr-4 shadow-2xl border border-gray-700">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3357.8876671246387!2d43.47543099999999!3d34.932027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1553dd5b38411375%3A0x30ea9927fbf9535b!2z2LTYsdmD2Kkg2YfZhtiv2LPYqSDYp9mE2K_ZgtipINmE2YTZhdmC2KfZiNmE2KfYqiDYp9mE2LnYp9mF2Kkg2YjYp9mE2KrYrNmH2YrYsiDZiNiq2KPYrNmK2LEg2KfZhNin2YTZitin2Kog2Ygg2KfZhNin2YrYp9iv2Yog2KfZhNi52KfZhdmE2Kkg2KfZhNi52LHYp9mC2YrYqQ!5e0!3m2!1sen!2siq!4v1701101548811!5m2!1sen!2siq"
+                src="https://www.google.com/maps?q=35.5681763,45.4035339&z=15&output=embed"
                 width="100%"
                 height="500"
                 style={{ border: 0 }}
@@ -102,8 +102,8 @@ const Location = () => {
                     Our Address
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
-                   Sulaymaniyah Bakhtiari Street - above Youth Center - upper floor of City Star Bakery
-                    
+                    Sulaymaniyah Bakhtiari Street - above Youth Center - upper
+                    floor of City Star Bakery
                   </p>
                 </div>
               </div>
@@ -198,15 +198,16 @@ const Location = () => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }, 100);
             }}
-           className="bg-gradient-to-br  cursor-pointer from-primary/10 to-transparent border border-primary/20 rounded-2xl p-8 text-center">
+            className="bg-gradient-to-br  cursor-pointer from-primary/10 to-transparent border border-primary/20 rounded-2xl p-8 text-center"
+          >
             <div className="w-16 h-16  bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-3xl"></span>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-3">
-              Get Service
-            </h3>
+            <h3 className="text-2xl font-bold text-white mb-3">Get Service</h3>
             <p className="text-gray-300 mb-6">
-             We pride ourselves on offering not only a diverse collection of stunning artworks but also the flexibility to bring your vision to life.
+              We pride ourselves on offering not only a diverse collection of
+              stunning artworks but also the flexibility to bring your vision to
+              life.
             </p>
             <button className="px-6 py-3 border border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-[#19160f] transition-colors">
               Get Service
