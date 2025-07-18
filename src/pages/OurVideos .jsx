@@ -46,24 +46,24 @@ const OurVideos = () => {
         <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-primary/20 rounded-full blur-2xl"></div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto py-12 relative z-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-3 px-4 gap-8 max-w-7xl w-full mx-auto py-12 relative z-10">
         {videos.map((video, index) => (
           <div
             key={video.id}
-            className="group relative aspect-[3/4] overflow-hidden"
+            className="group relative aspect-[3/4] h-96 lg:h-full w-full  place-self-center overflow-hidden"
           >
             {/* Card Image */}
-            <div className="absolute inset-0 border-2 border-primary/80 overflow-hidden">
+            <div className="absolute inset-0 border-2  border-primary/80 overflow-hidden">
               <video
                 src={`http://localhost/project-api/uploads/video/${video.video}`}
                 loading="lazy"
                 alt={`${video.title} poster`}
-                className="h-full w-full object-cover transform transition duration-700 group-hover:scale-110"
+                className="h-full  w-full object-cover transform transition duration-700 group-hover:scale-110"
               />
             </div>
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90">
-              <div className="absolute bottom-0 w-full p-6 transform transition-transform duration-500 translate-y-2 group-hover:translate-y-0">
+              <div className="absolute bottom-0 w-full p-6 transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
                 <span className="block text-4xl font-medium text-white mb-2">
                   {index + 1}
                 </span>
@@ -77,7 +77,7 @@ const OurVideos = () => {
               {/* Play Button */}
               <button
                 onClick={() => openModal(video)}
-                className="absolute inset-0 w-full h-full flex items-center justify-center opacity-100 transition-opacity duration-300"
+                className="absolute inset-0  flex items-center justify-center opacity-100 transition-opacity duration-300"
               >
                 <span className="rounded-full bg-primary/20 p-4 backdrop-blur-sm hover:bg-primary/30 transition-all duration-300 hover:scale-110">
                   <FiPlay className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
