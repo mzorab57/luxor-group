@@ -1,11 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import React, { Suspense, lazy } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Main from "../components/layout/Main";
+import Loading from "../components/loading/Loading";
 
 // Pages
 
-import Gallery from "../pages/Gallery";
-import Service from "../pages/Service";
 // import Contact from "../pages/Contact";
 
 
@@ -18,9 +17,34 @@ import Work from "../components/work/Work";
 import Project from "../components/project/Project";
 import Location from "../components/location/Location";
 
-import OurProject from "../pages/OurProject";
+
 import MainDashboard from "../components/mainDashboard/MainDashboard";
-import OurVideos from "../pages/OurVideos ";
+
+
+const Service = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve(import("../pages/Service")), 4000)
+    )
+);
+const Gallery = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve(import("../pages/Gallery")), 1000)
+    )
+);
+const OurVideos = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve(import("../pages/OurVideos")), 3000)
+    )
+);
+const OurProject = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve(import("../pages/OurProject")), 3000)
+    )
+);
 
 
 const ErrorElement = () => (
@@ -32,12 +56,16 @@ const ErrorElement = () => (
       </p>
       <Link
         to="/"
-        className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+        className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary"
       >
         Go Back Home
       </Link>
     </div>
   </div>
+);
+
+const LazyComponent = ({ children }) => (
+  <Suspense fallback={<Loading />}>{children}</Suspense>
 );
 
 const Router = () => {
@@ -48,7 +76,9 @@ const Router = () => {
           index
           element={
             <>
+           
               <Hero />
+            
               <Feature />
               <AboutUs />
               <ServiceSection />

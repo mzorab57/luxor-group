@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import PagesHeader from "../components/ui/PagesHeader";
 
-const API_URL = "http://localhost/project-api/project/get.php";
+const API_URL = "https://darkblue-seal-879137.hostingersite.com/api/project/get.php";
 
 const OurProject = () => {
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImages, setModalImages] = useState([]);
   const [currentImgIdx, setCurrentImgIdx] = useState(0);
@@ -25,10 +26,11 @@ const OurProject = () => {
           : JSON.parse(item.images || "[]"),
       }));
 
-      console.log("Projects:", fixed);
       setProjects(fixed);
     } catch (error) {
       console.error("Error fetching projects:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -58,55 +60,76 @@ const OurProject = () => {
         img={"/assets/images/gallery/gallery1.webp"}
         title={"Projects"}
       />
+
+      {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-20 w-32 h-32 bg-primary/15 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-primary/20 rounded-full blur-2xl"></div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto py-12 relative z-10 lg:px-2">
-        {projects.map((project) => (
-          <div
-            key={project.id}
-            className="bg-gradient-to-br place-self-center w-[22rem] lg:size-full from-primary/10 to-transparent border border-primary/20 rounded shadow-lg overflow-hidden flex flex-col lg:flex-row hover:scale-[1.02] transition-transform duration-300"
-          >
-            <img
-              src={`http://localhost/project-api/uploads/project/${project.images[0]}`}
-              alt={project.title}
-              className="w-full lg:h-full h-[18rem]   lg:w-1/2  cursor-pointer"
-              onClick={() => openModal(project.images.map(img => `http://localhost/project-api/uploads/project/${img}`), 0)}
-            />
-            <div className="p-2 flex flex-col justify-between">
-              <div className="">
-                <h3 className="text-lg lg:text-xl  font-semibold text-gray-200 ">
-                  {project.title}
-                </h3>
-                <p className="text-gray-300 text-sm lg:text-lg mb-2">{project.description}</p>
-                
-              </div>
-              <div className="lg:mt-4 flex gap-2 overflow-x-auto rounded-lg bg-[#23201a]/70 p-2 scrollbar-hide">
-                {project.images.slice(1).map((img, idx) => (
-                  <img
-                    key={idx}
-                    src={`http://localhost/project-api/uploads/project/${img}`}
-                    alt={project.title + " preview " + (idx + 2)}
-                    className="w-12 h-12 object-cover rounded border border-primary/30 cursor-pointer transition-transform hover:scale-110"
-                    onClick={() =>
-                      openModal(
-                        project.images.map(i => `http://localhost/project-api/uploads/project/${i}`),
-                        idx + 1
-                      )
-                    }
-                  />
-                ))}
+
+      {loading ? (
+        <div className="flex justify-center items-center py-40">
+          <div className="w-12 h-12 border-4 border-primary border-t-transparent border-solid rounded-full animate-spin"></div>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto py-12 relative z-10 lg:px-2">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="bg-gradient-to-br place-self-center w-[22rem] lg:size-full from-primary/10 to-transparent border border-primary/20 rounded shadow-lg overflow-hidden flex flex-col lg:flex-row hover:scale-[1.02] transition-transform duration-300"
+            >
+              <img
+                src={`https://darkblue-seal-879137.hostingersite.com/api/uploads/project/${project.images[0]}`}
+                alt={project.title}
+                className="w-full lg:h-full h-[18rem] lg:w-1/2 cursor-pointer"
+                onClick={() =>
+                  openModal(
+                    project.images.map(
+                      (img) =>
+                        `https://darkblue-seal-879137.hostingersite.com/api/uploads/project/${img}`
+                    ),
+                    0
+                  )
+                }
+              />
+              <div className="p-2 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-lg lg:text-xl font-semibold text-gray-200">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm lg:text-lg mb-2">
+                    {project.description}
+                  </p>
+                </div>
+                <div className="lg:mt-4 flex gap-2 overflow-x-auto rounded-lg bg-[#23201a]/70 p-2 scrollbar-hide">
+                  {project.images.slice(1).map((img, idx) => (
+                    <img
+                      key={idx}
+                      src={`https://darkblue-seal-879137.hostingersite.com/api/uploads/project/${img}`}
+                      alt={project.title + " preview " + (idx + 2)}
+                      className="w-12 h-12 object-cover rounded border border-primary/30 cursor-pointer transition-transform hover:scale-110"
+                      onClick={() =>
+                        openModal(
+                          project.images.map(
+                            (i) =>
+                              `https://darkblue-seal-879137.hostingersite.com/api/uploads/project/${i}`
+                          ),
+                          idx + 1
+                        )
+                      }
+                    />
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       {modalOpen && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="relative bg-[#19160f] max-w-2xl rounded-lg shadow-2xl p-6  w-full flex flex-col items-center">
+          <div className="relative bg-[#19160f] max-w-2xl rounded-lg shadow-2xl p-6 w-full flex flex-col items-center">
             <button
               className="absolute top-2 right-2 text-gray-300 hover:text-white text-2xl"
               onClick={closeModal}
