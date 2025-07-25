@@ -1,185 +1,140 @@
-import React, { useState, useEffect } from "react";
-import Stack from "../Stack";
+
+
 import { Link } from "react-router-dom";
 
+// Service data
+const collectionData = {
 
-const works = [
-  {
-    id: 1,
-    category: "INTERIOR",
-    title: "Room Wallpapers",
-    image: "/assets/images/hero/slider-1.webp",
-    description: "Modern interior design with elegant wallpapers",
-  },
-  {
-    id: 2,
-    category: "INTERIOR",
-    title: "Ceiling Wallpaper",
-    image: "/assets/images/hero/slider-2.webp",
-    description: "Luxurious ceiling designs with premium materials",
-  },
-  {
-    id: 3,
-    category: "INTERIOR",
-    title: "Wall Designs",
-    image: "/assets/images/hero/slider-3.webp",
-    description: "Creative wall patterns and textures",
-  },
-  {
-    id: 4,
-    category: "INTERIOR",
-    title: "Custom Wallpapers",
-    image: "/assets/images/hero/slider-3.webp",
-    description: "Personalized wallpaper solutions",
-  },
-];
+  "projects": [
+    {
+      "id": 1,
+      "title": "City Star Caffe",
+      "category": "Interior",
+      "image": "/assets/images/gallery/gallery6.jpg",
+      "link": "/gallery",
+      "size": "2x"
+    },
+    {
+      "id": 7,
+      "title": "Stylish Family Appartment",
+      "category": "Interior",
+      "image": "/assets/images/gallery/gallery11.jpg",
+      "link": "/gallery",
+      "size": "2x"
+    },
+    {
+      "id": 2,
+      "title": "Minimal Guests House",
+      "category": ["Decor", "Interior"],
+      "image": "/assets/images/gallery/gallery10.jpg",
+      "link": "/gallery"
+    },
+    {
+      "id": 3,
+      "title": "Art Family",
+      "category": ["Decor", "Interior"],
+      "image": "/assets/images/gallery/gallery7.jpg",
+      "link": "/gallery"
+    },
+    {
+      "id": 4,
+      "title": "Private House in Spain",
+      "category": ["Decor", "Interior"],
+      "image": "/assets/images/gallery/gallery8.jpg",
+      "link": "/gallery"    },
+    {
+      "id": 5,
+      "title": "Modern Villa in Sitak",
+      "category": "Interior",
+      "image": "/assets/images/gallery/gallery9.jpg",
+      "link": "/gallery"
+    }
+  ]
+}
+
+
 
 const Work = () => {
-  const [cardDimensions, setCardDimensions] = useState({
-    width: 850,
-    height: 450,
-  });
-  const [selectedWork, setSelectedWork] = useState(null);
-
-  useEffect(() => {
-    const updateDimensions = () => {
-      if (window.innerWidth <= 480) {
-        setCardDimensions({ width: 300, height: 250 });
-      } else if (window.innerWidth <= 768) {
-        setCardDimensions({ width: 500, height: 300 });
-      } else if (window.innerWidth <= 1024) {
-        setCardDimensions({ width: 650, height: 400 });
-      } else {
-        setCardDimensions({ width: 850, height: 450 });
-      }
-    };
-
-    updateDimensions();
-    window.addEventListener("resize", updateDimensions);
-    return () => window.removeEventListener("resize", updateDimensions);
-  }, []);
-
   return (
-    <section
-      style={{
-        // backgroundImage: "url('/assets/images/shape/shape-work.webp')",
-        backgroundRepeat: "no-repeat",
-      }}
-      className="py-10 md:py-20  bg-cover bg-[#19160f]  relative overflow-hidden"
-    >
-    
-      {/* Decorative Elements */}
-      <img
-        src="/assets/images/shape/shape-work.webp"
-        alt="bg"
-        className="absolute inset-0 z-0 size-full"
-      />
-      {/* Overlay for dimming background if needed */}
-        <div className="absolute inset-0 bg-gradient-to-tl from-[#f1f0e9] via-[#ede6dd]/70 to-transparent pointer-events-none" />
+    <section className="p-0 bg-[#0f0d08] bg-gradient-to-br from-primary/10 to-transparent  border-primary/20 relative">
+       {/* Decorative Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-primary/20 rounded-full blur-xl"></div>
-        <div className="absolute bottom-20 right-20 w-24 h-24 bg-primary/15 rounded-full blur-xl"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-primary/25 rounded-full blur-xl"></div>
+        <div className="absolute top-0 left-20 w-40 h-40 bg-primary/15 rounded-full blur-3xl"></div>
       </div>
+       {/* Header */}
+              <div className="flex flex-col  md:flex-row md:items-center lg:p-16 py-10 px-4 max-w-7xl w-full  place-self-center md:justify-between mb-12">
+                <div>
+                  <span className="text-sm uppercase tracking-widest text-primary font-semibold">
+                    Gallery
+                  </span>
+                  <h2 className="text-3xl md:text-4xl font-medium text-white mt-2">
+                    Our Gallery Paintings
+                  </h2>
+                </div>
+                <Link
+                  onClick={() => window.scrollTo(0, 0)}
+                  to={"/gallery"}
+                  className="mt-6 md:mt-0 border w-fit border-primary text-primary px-6 py-2 rounded-full font-medium hover:bg-primary hover:text-[#19160f] transition"
+                >
+                  View All Gallery
+                </Link>
+              </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-0">
+        {collectionData.projects.map((project) => (
+          <Link 
+          onClick={()=>window.scrollTo({top:0})}
+          to={project.link}
+            key={project.id} 
+            className={`relative group overflow-hidden ${project.size === '2x' ? 'sm:col-span-2 sm:row-span-2  h-[40rem]' : ''}`}
+          >
+            <div className="relative">
+              {/* Thumbnail */}
+              <div className="relative overflow-hidden">
+                <Link to={project.link}>
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </Link>
+                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <h5 className="text-white text-xl font-semibold">{project.title}</h5>
+                  <i className="text-white text-2xl ml-2">+</i>
+                </div>
+              </div>
 
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'url("/assets/images/patterns/pattern-1.png")',
-            backgroundSize: "30px",
-            backgroundRepeat: "repeat",
-          }}
-        />
-      </div>
-
-      <div className="container flex  flex-col mx-auto  w-full px-4 relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-8 md:mb-16">
-          <h4 className="text-primary font-medium tracking-wider text-start uppercase mb-2 md:mb-3 text-sm md:text-base">
-            OUR COMPLETE PROJECT
-          </h4>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 text-start">
-            Our Quality Work
-          </h2>
-          <p className="text-start mt-3 max-w-xl text-lg font-medium text-gray-500">
-            At Luxor, art is more than decoration—it's an expression of
-            individuality. Experience the beauty of authentic, handcrafted
-            paintings designed to inspire and captivate.
-          </p>
-          <div className='  text-start pt-5'>
-
-              <Link onClick={(e) => window.scrollTo(0, 0)} to="/gallery" className="border  w-full border-primary hover:text-black hover:bg-primary font-medium   text-primary px-4 py-2  rounded-full hover:bg-primary-dark transition-colors text-sm md:text-base">
-              View All Work
-            </Link>
-          </div>
-        </div>
-
-        {/* Stack Gallery */}
-        <div className="max-w-full w-full">
-          <Stack
-            randomRotation={true}
-            sensitivity={180}
-            sendToBackOnClick={true}
-            cardDimensions={cardDimensions}
-            cardsData={works.map((work) => ({
-              id: work.id,
-              img: work.image,
-            }))}
-            animationConfig={{ stiffness: 300, damping: 30 }}
-          />
-        </div>
-
-        {/* Modal for Work Details */}
-        {selectedWork && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-2xl p-4 md:p-8 max-w-2xl w-full mx-4">
-              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-4">
-                {selectedWork.title}
-              </h3>
-              <p className="text-gray-600 mb-4 text-sm md:text-base">
-                {selectedWork.description}
-              </p>
-              <button
-                onClick={() => setSelectedWork(null)}
-                className="bg-primary text-white px-4 md:px-6 py-2 rounded-full hover:bg-primary-dark transition-colors text-sm md:text-base"
-              >
-                Close
-              </button>
+              {/* Info */}
+              <div className="absolute bottom-0 left-0 right-0 bg-[#19160f] p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <div>
+                  <h5>
+                    <Link to={project.link} className="text-xl text-gray-200 font-semibold hover:text-primary">
+                      {project.title}
+                    </Link>
+                  </h5>
+                  <p className="mt-2">
+                    {Array.isArray(project.category) ? (
+                      project.category.map((cat, index) => (
+                        <span key={index}>
+                          <Link to={`/category/${cat.toLowerCase()}`} className="text-gray-300 hover:text-primary">
+                            {cat}
+                          </Link>
+                          {index < project.category.length - 1 ? ', ' : ''}
+                        </span>
+                      ))
+                    ) : (
+                      <Link to={`/category/${project.category.toLowerCase()}`} className="text-gray-600 hover:text-primary">
+                        {project.category}
+                      </Link>
+                    )}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-        )}
+          </Link>
+        ))}
       </div>
     </section>
   );
 };
 
 export default Work;
-
-const images = [
-  {
-    id: 1,
-    img: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format",
-  },
-  {
-    id: 2,
-    img: "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=500&auto=format",
-  },
-  {
-    id: 3,
-    img: "https://images.unsplash.com/photo-1452626212852-811d58933cae?q=80&w=500&auto=format",
-  },
-  {
-    id: 4,
-    img: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=500&auto=format",
-  },
-];
-
-<Stack
-  randomRotation={true}
-  sensitivity={180}
-  sendToBackOnClick={false}
-  cardDimensions={{ width: 200, height: 200 }}
-  cardsData={images}
-/>;

@@ -173,7 +173,7 @@ const ServiceSection = () => {
             <span className="text-sm uppercase tracking-widest text-primary font-semibold">
               Our Best Services
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mt-2">
+            <h2 className="text-3xl md:text-4xl font-medium text-white mt-2">
               Services We're Offering
             </h2>
           </div>

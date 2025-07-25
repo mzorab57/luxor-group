@@ -4,7 +4,7 @@ import { HashRouter } from "react-router-dom";
 import App from "./App";
 import "./i18n";
 import "./index.css";
-import "./styles/animations.css";
+// import "./styles/animations.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 

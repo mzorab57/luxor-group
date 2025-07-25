@@ -19,9 +19,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`${isMobileMenuOpen ? "bg-[#19160f]" : ""}`}>
+    <nav className={`${isMobileMenuOpen ? "bg-[#19160f] " : ""}`}>
       <div className="container mx-auto px-4 font-medium">
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-4 px-8  ">
           {/* Logo */}
           <Link
             to="/"
@@ -44,7 +44,7 @@ const Navbar = () => {
             data-aos-duration="800"
             data-aos-delay="200"
           >
-            <ul className="flex space-x-4">
+            <ul className="flex space-x-4 text-lg">
               {navitemlist.map((item, index) => (
                 <div
                   key={index}

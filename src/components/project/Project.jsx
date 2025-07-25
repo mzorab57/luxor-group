@@ -24,6 +24,13 @@ const projects = [
     image: "/assets/images/hero/slider-3.webp",
     description: "Contemporary wall art and decorations",
   },
+  {
+    id: 4,
+    title: "Modern Wall Art",
+    category: "Art",
+    image: "/assets/images/hero/slider-3.webp",
+    description: "Contemporary wall art and decorations",
+  },
 ];
 
 const Project = () => {
@@ -61,7 +68,7 @@ const Project = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 max-w-7xl  w-full place-self-center">
           <motion.h4
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -89,11 +96,11 @@ const Project = () => {
         </div>
 
         {/* Project Carousel */}
-        <div className="relative   max-w-6xl  mx-auto">
+        <div className="relative     mx-auto">
           <div className="flex items-center justify-center lg:gap-6">
             {/* Previous Project */}
             <motion.div
-              className="relative w-0 lg:w-64  h-80 rounded-2xl overflow-hidden opacity-50 scale-90"
+              className="relative w-0 lg:w-96  h-80 rounded overflow-hidden opacity-50 scale-90"
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 0.5 }}
               transition={{ duration: 0.6 }}
@@ -111,7 +118,7 @@ const Project = () => {
 
             {/* Current Project */}
             <motion.div
-              className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-xl"
+              className="relative w-full lg:h-[500px] h-[400px] rounded overflow-hidden shadow-xl"
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6 }}
@@ -134,7 +141,7 @@ const Project = () => {
 
             {/* Next Project */}
             <motion.div
-              className="relative w-0 lg:w-64 h-80 rounded-2xl overflow-hidden opacity-50 scale-90"
+              className="relative w-0 lg:w-96 h-80 rounded overflow-hidden opacity-50 scale-90"
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 0.5 }}
               transition={{ duration: 0.6 }}
@@ -195,7 +202,7 @@ const Project = () => {
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="b rounded-2xl p-4 max-w-2xl w-full"
+            className="b rounded p-4 max-w-2xl w-full"
           >
             <div className="flex justify-end mb-4">
               {/* <div>

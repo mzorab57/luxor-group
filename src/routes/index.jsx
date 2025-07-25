@@ -1,103 +1,191 @@
 import React, { Suspense, lazy } from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import Main from "../components/layout/Main";
-import Loading from "../components/loading/Loading";
+import { Route, Routes } from "react-router-dom";
+import LoadingScreen from "../components/loading/LoadingScreen";
 
-// Pages
-
-// import Contact from "../pages/Contact";
-
-
-// Components
-import Hero from "../components/hero/Hero";
-import Feature from "../components/Feature";
-import AboutUs from "../components/aboutUs/AboutUs";
-import ServiceSection from "../components/service/ServiceSection";
-import Work from "../components/work/Work";
-import Project from "../components/project/Project";
-import Location from "../components/location/Location";
-
-
-import MainDashboard from "../components/mainDashboard/MainDashboard";
-
-
-const Service = lazy(
+// Lazy load components with delay to simulate network
+const Hero = lazy(
   () =>
     new Promise((resolve) =>
-      setTimeout(() => resolve(import("../pages/Service")), 4000)
+      setTimeout(() => resolve(import("../components/hero/Hero")), 0)
     )
 );
+const Feature = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve(import("../components/Feature")), 3000)
+    )
+);
+const AboutUs = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve(import("../components/aboutUs/AboutUs")), 4000)
+    )
+);
+const ServiceSection = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(
+        () => resolve(import("../components/service/ServiceSection")),
+        1000
+      )
+    )
+);
+const Work = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve(import("../components/work/Work")), 1000)
+    )
+);
+const Project = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve(import("../components/project/Project")), 1000)
+    )
+);
+const Location = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve(import("../components/location/Location")), 1000)
+    )
+);
+const VideoSection = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(
+        () => resolve(import("../components/videoSection/VideoSection")),
+        2000
+      )
+    )
+);
+
+// routes
 const Gallery = lazy(
   () =>
     new Promise((resolve) =>
       setTimeout(() => resolve(import("../pages/Gallery")), 1000)
     )
 );
-const OurVideos = lazy(
-  () =>
-    new Promise((resolve) =>
-      setTimeout(() => resolve(import("../pages/OurVideos")), 3000)
-    )
-);
 const OurProject = lazy(
   () =>
     new Promise((resolve) =>
-      setTimeout(() => resolve(import("../pages/OurProject")), 3000)
+      setTimeout(() => resolve(import("../pages/OurProject")), 1000)
+    )
+);
+const OurVideos = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve(import("../pages/OurVideos")), 1000)
+    )
+);
+const Service = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve(import("../pages/Service")), 1000)
     )
 );
 
-
-const ErrorElement = () => (
-  <div className="min-h-screen flex items-center justify-center bg-gray-100">
-    <div className="text-center">
-      <h1 className="text-6xl font-bold text-gray-900 mb-4">Oops!</h1>
-      <p className="text-xl text-gray-600 mb-4">
-        Sorry, an unexpected error has occurred.
-      </p>
-      <Link
-        to="/"
-        className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary"
-      >
-        Go Back Home
-      </Link>
-    </div>
-  </div>
+// admin panel pages
+const MainDashboard = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(
+        () => resolve(import("../components/mainDashboard/MainDashboard")),
+        1000
+      )
+    )
 );
 
 const LazyComponent = ({ children }) => (
-  <Suspense fallback={<Loading />}>{children}</Suspense>
+  <Suspense fallback={<LoadingScreen />}>{children}</Suspense>
 );
 
-const Router = () => {
+const AppRoutes = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Main />}>
+    <div>
+      <Routes>
         <Route
           index
+          path="/"
           element={
             <>
-           
-              <Hero />
-            
-              <Feature />
-              <AboutUs />
-              <ServiceSection />
-              <Work />
-              <Project />
-              <Location />
+              <LazyComponent>
+                <Hero />
+              </LazyComponent>
+              <LazyComponent>
+                <Feature />
+              </LazyComponent>
+              <LazyComponent>
+                <AboutUs />
+              </LazyComponent>
+              <LazyComponent>
+                <ServiceSection />
+              </LazyComponent>
+              <LazyComponent>
+                <Work />
+              </LazyComponent>
+              <LazyComponent>
+                <Project />
+              </LazyComponent>
+              <LazyComponent>
+                <VideoSection />
+              </LazyComponent>
+              <LazyComponent>
+                <Location />
+              </LazyComponent>
             </>
           }
         />
-        <Route path="gallery" element={<Gallery />} />
-        <Route path="project" element={<OurProject />} />
-        <Route path="video" element={<OurVideos />} />
-        <Route path="service" element={<Service />} />
-        <Route path="dashboard" element={<MainDashboard />} />
-        <Route path="contact" element={<Location />} />
-      </Route>
-      <Route path="*" element={<ErrorElement />} />
-    </Routes>
+        <Route
+          path="/gallery"
+          element={
+            <LazyComponent>
+              <Gallery />
+            </LazyComponent>
+          }
+        />
+        <Route
+          path="/project"
+          element={
+            <LazyComponent>
+              <OurProject />
+            </LazyComponent>
+          }
+        />
+        <Route
+          path="/video"
+          element={
+            <LazyComponent>
+              <OurVideos />
+            </LazyComponent>
+          }
+        />
+        <Route
+          path="/service"
+          element={
+            <LazyComponent>
+              <Service />
+            </LazyComponent>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <LazyComponent>
+              <Location />
+            </LazyComponent>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <LazyComponent>
+              <MainDashboard />
+            </LazyComponent>
+          }
+        />
+      </Routes>
+    </div>
   );
 };
 
-export default Router;
+export default AppRoutes;

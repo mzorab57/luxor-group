@@ -8,5 +8,13 @@
     "service": "Service",
     "dashboard": "Dashboard",
     "contact": "Contact"
-  }
+  },
+
+  "hero":{
+      "high_quality_paintings": "High Quality Paintings",
+      "view_gallery": "View Gallery",
+      "view_video":"View Video"
+  },
+
+   "projectCategories": ["Islamic", "Modern", "Portrate", "View all video"]
 }

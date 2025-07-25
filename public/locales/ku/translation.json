@@ -8,5 +8,18 @@
     "service": "خزمەتگوزاری",
     "dashboard": "داشبۆرد",
     "contact": "پەیوەندی"
-  }
+  },
+
+  "hero":{
+    "high_quality_paintings": "high_quality_paintings",
+      "view_gallery": "View Gallery",
+      "view_video":"View Video"
+  },
+
+   "projectCategories": [
+    "سیرامیک",
+    "پۆرسلین",
+    "گرانێت",
+    "بینینی هەموو ڤیدیۆکان"
+  ]
 }

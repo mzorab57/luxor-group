@@ -8,5 +8,18 @@
     "service": "الخدمات",
     "dashboard": "لوحة التحكم",
     "contact": "اتصل بنا"
-  }
+  },
+
+  "hero":{
+    "high_quality_paintings": "high_quality_paintings",
+      "view_gallery": "View Gallery",
+      "view_video":"View Video"
+  },
+
+  "projectCategories": [
+    "السيراميك",
+    "البورسلين",
+    "الجرانيت",
+    "عرض جميع الفيديوهات"
+  ]
 }

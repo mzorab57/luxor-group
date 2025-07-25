@@ -40,7 +40,7 @@ const OurVideos = () => {
   return (
     <div className="bg-[#19160f] relative">
       <PagesHeader
-        img={"/assets/images/video/bgVideo.jpg"}
+        img={"/assets/images/background/bgVideo.jpg"}
         title={"Our Videos"}
       />
       <div className="absolute inset-0 pointer-events-none">
