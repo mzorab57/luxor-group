@@ -1,7 +1,6 @@
 
 import React from "react";
 import { useTranslation } from "react-i18next";
-import VideoText from "./VideoText";
 import VideoCard from "./VideoCard";
 import AnimatedComponent from "../animation/AnimatedComponent";
 import services_vide from "/assets/videos/tvbg.mp4";
@@ -23,14 +22,22 @@ const VideoSection = () => {
       </div>
         {/* Header */}
         <div className="relative mb-12 sm:mb-16 lg:mb-20 text-center">
+            <h4
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-primary text-center font-medium tracking-wider uppercase mb-3"
+          >
+            LATEST Video
+          </h4>
           <AnimatedComponent animationType="fade-right">
             <div className="relative">
-              <h1 className="text-5xl leading-relaxed font-jost font-medium uppercase text-gray-200">
-                {t("our_video_projects")}
+              <h1 className="text-4xl lg:text-5xl leading-relaxed font-jost font-medium uppercase text-gray-200">
+               {t("our_video_projects")} 
               </h1>
-              {/* <div className="lg:text-6xl text-6xl absolute lg:-top-4 -top-10 -translate-x-7 leading-relaxed font-bold uppercase text-gray-500 opacity-10">
-                {t("our_video_projects")}
-              </div> */}
+              <div className="lg:text-6xl text-5xl whitespace-nowrap absolute lg:-top-8 -top-10 left-1/2 transform -translate-x-1/2 leading-relaxed font-bold uppercase text-gray-500 opacity-10">
+                {t("our_video_projects")}0
+              </div>
             </div>
           </AnimatedComponent>
         </div>

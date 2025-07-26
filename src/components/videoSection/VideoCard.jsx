@@ -1,6 +1,5 @@
 import React, { useState} from "react";
-import { FiPlay } from "react-icons/fi";
-
+import { AiOutlinePlayCircle } from "react-icons/ai";
 const VideoCard = ({ number, title, description, videoSrc, poster }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -28,14 +27,14 @@ const VideoCard = ({ number, title, description, videoSrc, poster }) => {
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90">
           {/* Content */}
-          <div className="absolute  bottom-0 w-full p-6 transform transition-transform duration-500 translate-y-2 group-hover:translate-y-0">
+          <div className="absolute flex justify-between items-center bg-gradient-to-br from-primary/20 to-transparent border-t border-primary/20 bottom-0 w-full p-6 transform transition-transform duration-500 translate-y-2 group-hover:translate-y-0">
             <span className="block text-4xl font-medium text-white mb-2">
               {number}
             </span>
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-300 mb-1">
+            <h3 className="text-xl sm:text-2xl  text-gray-300 mb-1">
               {title}
             </h3>
-            <p className="text-sm text-gray-300 rounded px-2 bg-gray-50/30 w-fit"># {description}</p>
+            {/* <p className="text-sm text-gray-300 rounded px-2 bg-gray-50/30 w-fit"># {description}</p> */}
           </div>
 
           {/* Play Button */}
@@ -43,8 +42,8 @@ const VideoCard = ({ number, title, description, videoSrc, poster }) => {
             onClick={handlePlayClick}
             className="absolute inset-0 w-full h-full flex items-center justify-center opacity-100  transition-opacity duration-300"
           >
-            <span className="rounded-full bg-primary/5 p-4 backdrop-blur-sm hover:bg-primary transition-all duration-300 hover:scale-110">
-              <FiPlay className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+            <span className="rounded bg-gradient-to-br from-primary/20 to-transparent border border-primary/20 p-4 backdrop-blur-sm hover:bg-primary transition-all duration-300 hover:scale-110">
+              <AiOutlinePlayCircle className="size-10 sm:w-10 sm:h-10 text-white" />
             </span>
           </button>
         </div>

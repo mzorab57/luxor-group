@@ -52,7 +52,18 @@ const features = [
 ];
 
 const Feature = () => (
-  <section className="py-12 bg-white container mx-auto px-4  ">
+  <section className="py-12 bg-[#19160f] bg-gradient-to-br from-primary/10 to-transparent  border-primary/20 container  w-full max-w-full relative  ">
+      {/* Decorative Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-40 left-10 w-40 h-40 bg-primary/15 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 bg-primary/15 rounded-full blur-3xl"></div>
+        {/* <div className="absolute top-40 left-1/3 w-24 h-24 bg-primary/20 rounded-full blur-2xl"></div> */}
+      </div>
+      {/* Decorative Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute w-[500px] h-[500px] top-64 -left-64 bg-primary/10 rounded-full blur-3xl animate-float-slow" />
+        <div className="absolute w-[300px] h-[300px] top-1/2 right-0 bg-secondary/10 rounded-full blur-2xl animate-float-medium" />
+      </div>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 place-self-center max-w-[1200px] w-full mb-8">
         {features.map((feature, idx) => (
           <div

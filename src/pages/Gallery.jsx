@@ -82,7 +82,7 @@ const Gallery = () => {
                 </div>
                 <button
                   onClick={() => openModal(item)}
-                  className="px-2 size-fit h-full place-self-center whitespace-nowrap py-1 text-gray-200 text-sm  bg-gradient-to-br from-primary/20 to-transparent  border-primary/20 rounded hover:bg-primary transition"
+                  className="px-2 size-fit h-full place-self-center whitespace-nowrap py-1 text-gray-200 text-sm  bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded hover:bg-primary transition"
                 >
                   View Details
                 </button>

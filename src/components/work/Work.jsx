@@ -1,6 +1,8 @@
 
 
 import { Link } from "react-router-dom";
+import AnimatedComponent from "../animation/AnimatedComponent";
+import { useTranslation } from "react-i18next";
 
 // Service data
 const collectionData = {
@@ -55,30 +57,43 @@ const collectionData = {
 
 
 const Work = () => {
+  
+  const { t } = useTranslation();
   return (
-    <section className="p-0 bg-[#0f0d08] bg-gradient-to-br from-primary/10 to-transparent  border-primary/20 relative">
+    <section className="py-10 bg-[#0f0d08] bg-gradient-to-br from-primary/10 to-transparent  border-primary/20 relative">
        {/* Decorative Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-20 w-40 h-40 bg-primary/15 rounded-full blur-3xl"></div>
       </div>
-       {/* Header */}
-              <div className="flex flex-col  md:flex-row md:items-center lg:p-16 py-10 px-4 max-w-7xl w-full  place-self-center md:justify-between mb-12">
-                <div>
-                  <span className="text-sm uppercase tracking-widest text-primary font-semibold">
-                    Gallery
-                  </span>
-                  <h2 className="text-3xl md:text-4xl font-medium text-white mt-2">
-                    Our Gallery Paintings
-                  </h2>
-                </div>
-                <Link
-                  onClick={() => window.scrollTo(0, 0)}
-                  to={"/gallery"}
-                  className="mt-6 md:mt-0 border w-fit border-primary text-primary px-6 py-2 rounded-full font-medium hover:bg-primary hover:text-[#19160f] transition"
-                >
-                  View All Gallery
-                </Link>
+      {/* Header */}
+        <div className="relative mb-12 sm:mb-16 lg:mb-20 text-center">
+            <h4
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-primary text-center font-medium tracking-wider uppercase mb-3"
+          >
+             {t("gallery")} 
+          </h4>
+          <AnimatedComponent animationType="fade-right">
+            <div className="relative">
+              <h1 className="text-4xl lg:text-5xl leading-relaxed font-jost font-medium uppercase text-gray-200">
+               {t("our_video_projects")} 
+              </h1>
+              <div className="lg:text-6xl text-5xl whitespace-nowrap absolute lg:-top-8 -top-10 left-1/2 transform -translate-x-1/2 leading-relaxed font-bold uppercase text-gray-500 opacity-10">
+                {t("our_video_projects")}
               </div>
+            </div>
+          </AnimatedComponent>
+          {/* <div className=" w-full text-center pt-5">
+            <Link
+              to="/gallery"
+              className=" w-full  hover:text-black hover:bg-primary font-medium text-primary px-4 py-2 rounded-full hover:bg-primary-dark transition-colors text-sm md:text-base"
+            >
+              View All Projects
+            </Link>
+          </div> */}
+        </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-0">
         {collectionData.projects.map((project) => (
           <Link 

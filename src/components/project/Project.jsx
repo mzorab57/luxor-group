@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import AnimatedComponent from "../animation/AnimatedComponent";
+  import { useTranslation } from "react-i18next";
 
 const projects = [
   {
@@ -36,6 +38,8 @@ const projects = [
 const Project = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
+
+  const { t } = useTranslation();
 
   const handleViewDetails = (project) => {
     setSelectedProject(project);
@@ -73,26 +77,31 @@ const Project = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-primary text-start font-medium tracking-wider uppercase mb-3"
+            className="text-primary text-center font-medium tracking-wider uppercase mb-3"
           >
             OUR LATEST PROJECTS
           </motion.h4>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-5xl font-semibold text-start text-gray-200"
-          >
-            Featured Projects
-          </motion.h2>
-          <div className=" w-full lg:text-end text-start pt-5">
+          {/* Header */}
+        <div className="relative mb-12 sm:mb-16 lg:mb-20 text-center">
+          <AnimatedComponent animationType="fade-right">
+            <div className="relative">
+              <h1 className="lg:text-5xl text-4xl leading-relaxed font-jost font-medium uppercase text-gray-200">
+               {t("completed_works")} 
+              </h1>
+              <div className="lg:text-6xl text-5xl absolute lg:-top-8 -top-10 left-1/2 transform -translate-x-1/2 leading-relaxed font-bold uppercase text-gray-500 opacity-10">
+                {t("completed_works")}
+              </div>
+            </div>
+          </AnimatedComponent>
+        </div>
+          {/* <div className=" w-full text-center pt-5">
             <Link
               to="/project"
               className="border w-full border-primary hover:text-black hover:bg-primary font-medium text-primary px-4 py-2 rounded-full hover:bg-primary-dark transition-colors text-sm md:text-base"
             >
               View All Projects
             </Link>
-          </div>
+          </div> */}
         </div>
 
         {/* Project Carousel */}
