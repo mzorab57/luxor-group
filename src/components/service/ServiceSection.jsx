@@ -13,7 +13,7 @@ const services = [
       "Customized artwork tailored to client specifications",
       "Artistic collaborations and commissions",
     ],
-    image: "/assets/images/hero/slider-2.webp",
+    image: "/assets/images/gallery/gallery6.jpg",
     color: "from-amber-500/20 to-orange-600/20",
     accentColor: "amber-400",
     
@@ -27,7 +27,7 @@ const services = [
       "Custom framing solutions to match artwork and décor",
       "Frame design consultations",
     ],
-    image: "/assets/images/hero/slider-1.webp",
+    image: "/assets/images/gallery/gallery11.jpg",
     color: "from-purple-500/20 to-pink-600/20",
     accentColor: "purple-400",
     
@@ -41,7 +41,7 @@ const services = [
       "Streamlined production processes for quick turnaround",
       "Volume discounts for large orders",
     ],
-    image: "/assets/images/hero/slider-3.webp",
+    image: "/assets/images/gallery/gallery7.jpg",
     color: "from-emerald-500/20 to-teal-600/20",
     accentColor: "emerald-400",
     
@@ -55,7 +55,7 @@ const services = [
       "Professional handling and safety measures",
       "Post-installation support",
     ],
-    image: "/assets/images/hero/slider-1.webp",
+    image: "/assets/images/gallery/gallery15.jpg",
     color: "from-blue-500/20 to-cyan-600/20",
     accentColor: "blue-400",
     
@@ -226,7 +226,7 @@ const ServiceSection = () => {
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
+                  className="w-full h-full object-cover object-top transition-all duration-700 scale-75 rotate-3 group-hover:scale-100 group-hover:rotate-1"
                 />
                 
                 {/* Dynamic Overlay */}
@@ -240,8 +240,8 @@ const ServiceSection = () => {
 
               {/* Enhanced Service Badge */}
               <div className="absolute top-4 left-4 flex items-center space-x-2">
-                <span className={`bg-primary/50 text-gray-200 font-bold px-3 py-1 rounded-full text-sm backdrop-blur-sm transform transition-all duration-300 group-hover:scale-110`}>
-                  {service.id}
+                <span className={`bg-primary/20 text-gray-200 font-bold px-3 py-5  rounded-full text-sm backdrop-blur-sm transform transition-all duration-300 group-hover:scale-110`}>
+                  {/* {service.id} */}
                 </span>
               </div>
 
@@ -257,7 +257,7 @@ const ServiceSection = () => {
                   </p>
                   
                   <button
-                    className="hover-target bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/40 text-primary px-6 py-2 rounded-full font-medium backdrop-blur-sm transform transition-all duration-300 hover:from-primary hover:to-amber-500 hover:text-black hover:scale-105  translate-y-4 group-hover:translate-y-0 delay-200"
+                    className="hover-target bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/40 text-primary px-4 py-1 rounded-full font-medium backdrop-blur-sm transform transition-all duration-300 hover:from-primary hover:to-amber-500 hover:text-black hover:scale-105  translate-y-4 group-hover:translate-y-0 delay-200"
                     onClick={() => setSelectedService(service)}
                   >
                     Explore Details
