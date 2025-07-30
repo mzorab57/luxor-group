@@ -1,5 +1,9 @@
-import React, { useState} from "react";
+import { useState} from "react";
 import { AiOutlinePlayCircle } from "react-icons/ai";
+
+
+
+
 const VideoCard = ({ number, title, description, videoSrc, poster }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -13,7 +17,7 @@ const VideoCard = ({ number, title, description, videoSrc, poster }) => {
 
   return (
     <>
-      <div className="group relative aspect-[3/4]  overflow-hidden">
+      <div className="group relative aspect-[3/4] rounded overflow-hidden">
         {/* Card Image */}
         <div className="absolute inset-0 border-2 border-primary overflow-hidden">
           <img

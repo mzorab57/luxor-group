@@ -49,7 +49,7 @@ const Gallery = () => {
   return (
     <div className="min-h-screen bg-[#19160f]">
       <PagesHeader
-        img={"/assets/images/gallery/page-header.jpg"}
+        img={"/assets/images/gallery/gallery17.jpg"}
         title={"Gallery"}
       />
 

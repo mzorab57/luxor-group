@@ -2,6 +2,7 @@ import React from "react";
 import { MdOutlineEmail, MdOutlinePhone, MdOutlineLocationOn   } from "react-icons/md";
 import { Link } from "react-router-dom";
 const Footer = () => {
+ 
   return (
     <footer className="relative z-[0] py-20 bg-[#19160f] overflow-hidden ">
       {/* Background Pattern Overlay */}
@@ -33,19 +34,20 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+              
+                href="https://www.facebook.com/share/1AjwB4GNhd/"
                 className="w-10 h-10 bg-primary/20 border border-primary/30 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-[#19160f] transition-all duration-300"
               >
                 <span className="text-sm font-bold">F</span>
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/luxor_groups?igsh=MzU0NTU5M25vN3Ex"
                 className="w-10 h-10 bg-primary/20 border border-primary/30 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-[#19160f] transition-all duration-300"
               >
                 <span className="text-sm font-bold">I</span>
               </a>
               <a
-                href="#"
+                href="https://www.tiktok.com/@luxor_groups?_t=ZS-8yOyAKxxoIB&_r=1"
                 className="w-10 h-10 bg-primary/20 border border-primary/30 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-[#19160f] transition-all duration-300"
               >
                 <span className="text-sm font-bold">T</span>
@@ -71,7 +73,7 @@ const Footer = () => {
               <li>
                 <Link
                 onClick={() => window.scrollTo(0, 0)}
-                  to="/service"
+                  to="service"
                   className="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center group"
                 >
                   <span className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
@@ -82,11 +84,31 @@ const Footer = () => {
               <li>
                 <Link
                 onClick={() => window.scrollTo(0, 0)}
-                  to="/gallery"
+                  to="gallery"
                   className="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center group"
                 >
                   <span className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
                   Gallery
+                </Link>
+              </li>
+              <li>
+                <Link
+                onClick={() => window.scrollTo(0, 0)}
+                  to="video"
+                  className="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center group"
+                >
+                  <span className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
+                  Video
+                </Link>
+              </li>
+              <li>
+                <Link
+                onClick={() => window.scrollTo(0, 0)}
+                  to="project"
+                  className="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center group"
+                >
+                  <span className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
+                  Project
                 </Link>
               </li>
             </ul>
@@ -152,7 +174,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-yellow-500 hover:text-yellow-400 transition-colors"
             >
-              TOP SOFT
+              Al-Code
             </a>
           </p>
         </div>

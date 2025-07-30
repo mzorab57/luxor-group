@@ -66,7 +66,8 @@ const Feature = () => (
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 place-self-center max-w-[1200px] w-full mb-8">
         {features.map((feature, idx) => (
-          <div
+          <Link
+            onClick={() => window.scrollTo(0, 0)} to={feature.link}
             key={feature.title}
             className="flex items-center justify-center bg-yellow-800/20 group hover:bg-primary lg:max-w-[260px]  rounded-full  lg:py-6 py-4  shadow-sm relative overflow-hidden"
             data-aos="fade-up"
@@ -82,9 +83,9 @@ const Feature = () => (
               {feature.icon}
             </span>
             <h5 className="lg:text-lg  whitespace-nowrap font-semibold text-[#2E2A20] group-hover:text-white   transition-all duration-200 ease-in">
-              <Link onClick={() => window.scrollTo(0, 0)} to={feature.link}>{feature.title}</Link>
+             {feature.title}
             </h5>
-          </div>
+          </Link>
         ))}
       </div>
       <div

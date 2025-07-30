@@ -1,52 +1,86 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import AnimatedComponent from "../animation/AnimatedComponent";
-  import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const projects = [
   {
     id: 1,
     title: "Modern Interior Design",
     category: "Interior",
-    image: "/assets/images/hero/hero-1.webp",
+    image: "/assets/images/gallery/gallery6.jpg",
     description: "Luxurious and contemporary interior design solutions",
   },
   {
     id: 2,
     title: "Classic Wallpaper Design",
     category: "Wallpaper",
-    image: "/assets/images/hero/slider-2.webp",
+    image: "/assets/images/gallery/gallery12.jpg",
     description: "Elegant and timeless wallpaper patterns",
   },
   {
     id: 3,
     title: "Modern Wall Art",
     category: "Art",
-    image: "/assets/images/hero/slider-3.webp",
+    image: "/assets/images/gallery/gallery13.jpg",
     description: "Contemporary wall art and decorations",
   },
   {
     id: 4,
     title: "Modern Wall Art",
     category: "Art",
-    image: "/assets/images/hero/slider-3.webp",
+    image: "/assets/images/gallery/gallery10.jpg",
+    description: "Contemporary wall art and decorations",
+  },
+  {
+    id: 5,
+    title: "Modern Wall Art",
+    category: "Art",
+    image: "/assets/images/gallery/gallery7.jpg",
+    description: "Contemporary wall art and decorations",
+  },
+  {
+    id: 6,
+    title: "Modern Wall Art",
+    category: "Art",
+    image: "/assets/images/gallery/gallery8.jpg",
+    description: "Contemporary wall art and decorations",
+  },
+  {
+    id: 7,
+    title: "Modern Wall Art",
+    category: "Art",
+    image: "/assets/images/gallery/gallery9.jpg",
+    description: "Contemporary wall art and decorations",
+  },
+  {
+    id: 8,
+    title: "Modern Wall Art",
+    category: "Art",
+    image: "/assets/images/gallery/gallery11.jpg",
+    description: "Contemporary wall art and decorations",
+  },
+  {
+    id: 9,
+    title: "Modern Wall Art",
+    category: "Art",
+    image: "/assets/images/gallery/gallery12.jpg",
+    description: "Contemporary wall art and decorations",
+  },
+  {
+    id: 10,
+    title: "Modern Wall Art",
+    category: "Art",
+    image: "/assets/images/gallery/gallery13.jpg",
     description: "Contemporary wall art and decorations",
   },
 ];
 
 const Project = () => {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
-
-  const { t } = useTranslation();
-
-  const handleViewDetails = (project) => {
-    setSelectedProject(project);
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 100);
-  };
 
   const nextProject = () => {
     setCurrentIndex((prev) => (prev + 1) % projects.length);
@@ -65,9 +99,18 @@ const Project = () => {
         <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-primary/20 rounded-full blur-2xl"></div>
       </div>
       {/* Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute w-[500px] h-[500px] -top-64 -left-64 bg-primary/10 rounded-full blur-3xl animate-float-slow" />
-        <div className="absolute w-[300px] h-[300px] top-1/2 right-0 bg-secondary/10 rounded-full blur-2xl animate-float-medium" />
+
+      <div className="absolute inset-0">
+        {/* Animated Gradient Orbs */}
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-primary/20 via-amber-500/10 to-orange-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-purple-500/15 via-pink-500/10 to-primary/5 rounded-full blur-3xl animate-float-reverse"></div>
+        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-r from-emerald-500/20 via-teal-500/10 to-cyan-500/15 rounded-full blur-2xl animate-float-medium"></div>
+
+        {/* chwar goshakan Geometric Patterns */}
+        <div className="absolute top-32 right-1/4 w-32 h-32 border border-primary/10 rotate-45 animate-spin-slow"></div>
+        {/* <div className="absolute bottom-40 left-1/4 w-24 h-24 border-2 border-purple-500/10 rounded-full animate-bounce-slow"></div> */}
+        {/* <div className="absolute top-10 left-1/3 w-32 h-32 border border-primary/10 rotate-45 animate-spin-slow"></div> */}
+        <div className="absolute top-5 left-1/4 w-10 h-10 border-2 border-purple-300/15 animate-spin-slow  "></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -82,18 +125,18 @@ const Project = () => {
             OUR LATEST PROJECTS
           </motion.h4>
           {/* Header */}
-        <div className="relative mb-12 sm:mb-16 lg:mb-20 text-center">
-          <AnimatedComponent animationType="fade-right">
-            <div className="relative">
-              <h1 className="lg:text-5xl text-4xl leading-relaxed font-jost font-medium uppercase text-gray-200">
-               {t("completed_works")} 
-              </h1>
-              <div className="lg:text-6xl text-5xl absolute lg:-top-8 -top-10 left-1/2 transform -translate-x-1/2 leading-relaxed font-bold uppercase text-gray-500 opacity-10">
-                {t("completed_works")}
+          <div className="relative mb-12 sm:mb-16 lg:mb-20 text-center">
+            <AnimatedComponent animationType="fade-right">
+              <div className="relative">
+                <h1 className="lg:text-5xl text-4xl leading-relaxed font-jost font-medium uppercase text-gray-200">
+                  {t("completed works")}
+                </h1>
+                <div className="lg:text-6xl text-5xl absolute lg:-top-8 -top-10 left-1/2 transform -translate-x-1/2 leading-relaxed font-bold uppercase text-gray-500 opacity-10">
+                  {t("completed works")}
+                </div>
               </div>
-            </div>
-          </AnimatedComponent>
-        </div>
+            </AnimatedComponent>
+          </div>
           {/* <div className=" w-full text-center pt-5">
             <Link
               to="/project"
@@ -127,7 +170,7 @@ const Project = () => {
 
             {/* Current Project */}
             <motion.div
-              className="relative w-full lg:h-[500px] h-[400px] rounded overflow-hidden shadow-xl"
+              className="relative  w-full max-w-2xl lg:h-[500px] h-[400px] rounded overflow-hidden shadow-xl"
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6 }}
@@ -144,13 +187,12 @@ const Project = () => {
                 <p className="text-sm opacity-80">
                   {projects[currentIndex].description}
                 </p>
-                
               </div>
             </motion.div>
 
             {/* Next Project */}
             <motion.div
-              className="relative w-0 lg:w-96 h-80 rounded overflow-hidden opacity-50 scale-90"
+              className="relative w-0  lg:w-96 h-80 rounded overflow-hidden opacity-50 scale-90"
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 0.5 }}
               transition={{ duration: 0.6 }}

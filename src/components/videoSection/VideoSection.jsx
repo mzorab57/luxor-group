@@ -3,9 +3,9 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import VideoCard from "./VideoCard";
 import AnimatedComponent from "../animation/AnimatedComponent";
-import services_vide from "/assets/videos/tvbg.mp4";
-import services_vide2 from "/assets/videos/tvbg.mp4";
-import services_vide3 from "/assets/videos/tvbg.mp4";
+import services_vide from "/assets/videos/lux.mp4";
+import services_vide2 from "/assets/videos/video1.mp4";
+import services_vide3 from "/assets/videos/video2.mp4";
 
 const VideoSection = () => {
   const { t } = useTranslation();
@@ -56,21 +56,21 @@ const VideoSection = () => {
             <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
               <VideoCard
                 number="01"
-                title={t("islamic")}
+                title={t("Islamic")}
                 description={t("walls and floors")}
                 videoSrc={services_vide}
                 poster="/assets/images/gallery/gallery11.JPG"
               />
               <VideoCard
                 number="02"
-                title={t("modern")}
+                title={t("Modern")}
                 description={t("any environment.")}
                 videoSrc={services_vide2}
                 poster="/assets/images/gallery/gallery10.JPG"
               />
               <VideoCard
                 number="03"
-                title={t("protrate")}
+                title={t("Clasic")}
                 description={t("indoor and outdoor")}
                 videoSrc={services_vide3}
                 poster="/assets/images/gallery/gallery8.JPG"

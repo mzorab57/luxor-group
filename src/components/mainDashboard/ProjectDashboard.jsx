@@ -152,7 +152,7 @@ export default function ProjectDashboard() {
 
   return (
     <Box sx={{ maxWidth: 1000, mx: "auto", p: 3 }}>
-      <Typography variant="h4" gutterBottom>
+      <Typography className="text-white pt-8"  variant="h4" gutterBottom>
         Project Dashboard
       </Typography>
 

@@ -87,7 +87,7 @@ export default function VideoDashboard() {
 
   return (
     <Box>
-      <Typography variant="h5" gutterBottom>
+      <Typography className="text-white pt-8"  variant="h5" gutterBottom>
         Video Table
       </Typography>
       <Button

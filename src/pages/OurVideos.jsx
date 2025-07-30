@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import PagesHeader from "../components/ui/PagesHeader";
-import { FiPlay } from "react-icons/fi";
+import { AiOutlinePlayCircle } from "react-icons/ai";
 
 const API_URL = "https://darkblue-seal-879137.hostingersite.com/api/video/get.php";
 
@@ -40,7 +40,7 @@ const OurVideos = () => {
   return (
     <div className="bg-[#19160f] relative">
       <PagesHeader
-        img={"/assets/images/background/bgVideo.jpg"}
+        img={"/assets/images/gallery/gallery16.jpg"}
         title={"Our Videos"}
       />
       <div className="absolute inset-0 pointer-events-none">
@@ -68,24 +68,24 @@ const OurVideos = () => {
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90">
-                <div className="absolute bottom-0 w-full p-6 transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
-                  <span className="block text-4xl font-medium text-white mb-2">
-                    {index + 1}
-                  </span>
+                <div className="absolute flex justify-between items-center bg-gradient-to-br from-primary/20 to-transparent border-t border-primary/20 bottom-0 w-full p-6 transform transition-transform duration-500 translate-y-2 group-hover:translate-y-0">
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-300 mb-1">
                     {video.title}
-                  </h3>
                   <p className="text-sm text-gray-300 rounded px-2 bg-gray-50/30 w-fit">
                     # {video.description}
                   </p>
+                  </h3>
+                   <span className="block text-4xl font-medium text-white mb-2">
+                    {index + 1}
+                  </span>
                 </div>
                 <button
                   onClick={() => openModal(video)}
-                  className="absolute inset-0 flex items-center justify-center opacity-100 transition-opacity duration-300"
+                 className="absolute inset-0 w-full h-full flex items-center justify-center opacity-100  transition-opacity duration-300"
                 >
-                  <span className="rounded-full bg-primary/20 p-4 backdrop-blur-sm hover:bg-primary/30 transition-all duration-300 hover:scale-110">
-                    <FiPlay className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
-                  </span>
+                 <span className="rounded bg-gradient-to-br from-primary/20 to-transparent border border-primary/20 p-4 backdrop-blur-sm hover:bg-primary transition-all duration-300 hover:scale-110">
+              <AiOutlinePlayCircle className="size-10 sm:w-10 sm:h-10 text-white" />
+            </span>
                 </button>
               </div>
             </div>

@@ -113,7 +113,7 @@ export default function GalleryDashboard() {
 
   return (
     <Box>
-      <Typography variant="h5" gutterBottom>
+      <Typography className="text-white pt-8" variant="h5" gutterBottom>
         Gallery Table
       </Typography>
       <Button
