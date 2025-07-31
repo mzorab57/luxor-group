@@ -58,7 +58,7 @@ const Gallery = () => {
           <div className="w-12 h-12 border-4 border-primary border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="max-w-7xl mt-10 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 p-3 ">
+        <div className="max-w-7xl mt-10 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 p-3 ">
           {gallery.map((item) => (
             <div
               key={item.id}

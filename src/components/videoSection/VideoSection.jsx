@@ -78,21 +78,21 @@ const VideoSection = () => {
                 title={t("Islamic")}
                 description={t("walls and floors")}
                 videoSrc={services_vide}
-                poster="/assets/images/gallery/gallery12.JPG"
+                // poster="/assets/images/gallery/gallery12.jpg"
               />
               <VideoCard
                 number="02"
                 title={t("Modern")}
                 description={t("any environment.")}
                 videoSrc={services_vide2}
-                poster="/assets/images/gallery/gallery10.JPG"
+                // poster="/assets/images/gallery/gallery10.jpg"
               />
               <VideoCard
                 number="03"
                 title={t("Clasic")}
                 description={t("indoor and outdoor")}
                 videoSrc={services_vide3}
-                poster="/assets/images/gallery/gallery8.JPG"
+                // poster="/assets/images/gallery/gallery8.jpg"
               />
             </div>
           </div>

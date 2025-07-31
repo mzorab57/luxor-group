@@ -42,6 +42,7 @@ const Navbar = () => {
   const handleMobileMenuClose = () => {
     setIsMobileMenuOpen(false);
     setActiveSubmenu(null);
+    window.scrollTo({ top: 0 });
   };
 
   const handleLogout = () => {

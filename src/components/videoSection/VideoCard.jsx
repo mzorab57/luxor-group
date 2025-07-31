@@ -1,8 +1,5 @@
-import { useState} from "react";
+import { useState } from "react";
 import { AiOutlinePlayCircle } from "react-icons/ai";
-
-
-
 
 const VideoCard = ({ number, title, description, videoSrc, poster }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,10 +17,15 @@ const VideoCard = ({ number, title, description, videoSrc, poster }) => {
       <div className="group relative aspect-[3/4] rounded overflow-hidden">
         {/* Card Image */}
         <div className="absolute inset-0 border-2 border-primary overflow-hidden">
-          <img
+          {/* <img
             src={poster}
             loading="lazy"
             alt={`${title} poster`}
+            className="h-full w-full object-cover transform transition duration-700 group-hover:scale-110"
+          /> */}
+          <video
+            src={videoSrc}
+            loading="lazy"
             className="h-full w-full object-cover transform transition duration-700 group-hover:scale-110"
           />
         </div>
@@ -35,9 +37,7 @@ const VideoCard = ({ number, title, description, videoSrc, poster }) => {
             <span className="block text-4xl font-medium text-white mb-2">
               {number}
             </span>
-            <h3 className="text-xl sm:text-2xl  text-gray-300 mb-1">
-              {title}
-            </h3>
+            <h3 className="text-xl sm:text-2xl  text-gray-300 mb-1">{title}</h3>
             {/* <p className="text-sm text-gray-300 rounded px-2 bg-gray-50/30 w-fit"># {description}</p> */}
           </div>
 

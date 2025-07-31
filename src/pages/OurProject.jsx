@@ -73,11 +73,11 @@ const OurProject = () => {
           <div className="w-12 h-12 border-4 border-primary border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto py-12 relative z-10 lg:px-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-7xl mx-auto py-12 relative z-10 lg:px-2">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-gradient-to-br place-self-center w-[22rem] lg:size-full from-primary/10 to-transparent border border-primary/20 rounded shadow-lg overflow-hidden flex flex-col lg:flex-row hover:scale-[1.02] transition-transform duration-300"
+              className="bg-gradient-to-br place-self-center w-[25rem]  lg:size-full from-primary/10 to-transparent border border-primary/20 rounded shadow-lg overflow-hidden flex flex-col lg:flex-row hover:scale-[1.02] transition-transform duration-300"
             >
               <img
                 src={`https://darkblue-seal-879137.hostingersite.com/api/uploads/project/${project.images[0]}`}

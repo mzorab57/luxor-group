@@ -36,6 +36,7 @@ const MobileMenuItem = ({
             {item.children.map((child) => (
               <li key={child.title}>
                 <Link
+                
                   to={child.link}
                   className="block px-8 py-3 text-gray-300 hover:text-primary hover:bg-primary/5 transition-all duration-300"
                   onClick={onClose}
