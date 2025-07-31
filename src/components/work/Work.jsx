@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import AnimatedComponent from "../animation/AnimatedComponent";
 import { useTranslation } from "react-i18next";
+import ImageWithFallback from "../common/ImageWithFallback";
+import { getImagePath } from "../../utils/imageUtils";
 
 // Service data
 const collectionData = {
@@ -61,20 +63,24 @@ const Work = () => {
         <div className="absolute top-10 left-20 w-40 h-40 bg-primary/15 rounded-full blur-3xl"></div>
       </div>
       {/* Decorative Elements */}
-<AnimatedComponent animationType="fade-up" dataAosDuration={1000} delay={200}>
-      <div className="absolute inset-0">
-        {/* Animated Gradient Orbs */}
-        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-primary/20 via-amber-500/10 to-orange-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-purple-500/15 via-pink-500/10 to-primary/5 rounded-full blur-3xl animate-float-reverse"></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-r from-emerald-500/5 via-teal-500/10 to-cyan-500/5 rounded-full blur-2xl animate-float-medium"></div>
+      <AnimatedComponent
+        animationType="fade-up"
+        dataAosDuration={1000}
+        delay={200}
+      >
+        <div className="absolute inset-0">
+          {/* Animated Gradient Orbs */}
+          <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-primary/20 via-amber-500/10 to-orange-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-purple-500/15 via-pink-500/10 to-primary/5 rounded-full blur-3xl animate-float-reverse"></div>
+          <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-r from-emerald-500/5 via-teal-500/10 to-cyan-500/5 rounded-full blur-2xl animate-float-medium"></div>
 
-        {/* chwar goshakan Geometric Patterns */}
-        <div className="absolute top-32 right-1/4 w-32 h-32 border border-primary/10 rotate-45 animate-spin-slow"></div>
-        {/* <div className="absolute bottom-40 left-1/4 w-24 h-24 border-2 border-purple-500/10 rounded-full animate-bounce-slow"></div> */}
-        {/* <div className="absolute top-10 left-1/3 w-32 h-32 border border-primary/10 rotate-45 animate-spin-slow"></div> */}
-        <div className="absolute top-20 left-0 lg:left-1/4 w-40 h-2 border border-primary/15 animate-spin-slow  "></div>
-        <div className="absolute top-20 left-5 border-2 w-10 h-10  border-primary/30 rotate-45  "></div>
-      </div>
+          {/* chwar goshakan Geometric Patterns */}
+          <div className="absolute top-32 right-1/4 w-32 h-32 border border-primary/10 rotate-45 animate-spin-slow"></div>
+          {/* <div className="absolute bottom-40 left-1/4 w-24 h-24 border-2 border-purple-500/10 rounded-full animate-bounce-slow"></div> */}
+          {/* <div className="absolute top-10 left-1/3 w-32 h-32 border border-primary/10 rotate-45 animate-spin-slow"></div> */}
+          <div className="absolute top-20 left-0 lg:left-1/4 w-40 h-2 border border-primary/15 animate-spin-slow  "></div>
+          <div className="absolute top-20 left-5 border-2 w-10 h-10  border-primary/30 rotate-45  "></div>
+        </div>
       </AnimatedComponent>
       {/* Header */}
       <div className="relative mb-12 sm:mb-16 lg:mb-20 text-center">
@@ -117,10 +123,11 @@ const Work = () => {
             <div className="relative">
               {/* Thumbnail */}
               <div className="relative overflow-hidden">
-                <img
+                <ImageWithFallback
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  fallbackSrc="/assets/images/gallery/gallery1.webp"
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <h5 className="text-white text-xl font-semibold">

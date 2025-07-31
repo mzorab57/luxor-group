@@ -78,7 +78,7 @@ const VideoSection = () => {
                 title={t("Islamic")}
                 description={t("walls and floors")}
                 videoSrc={services_vide}
-                poster="/assets/images/gallery/gallery11.JPG"
+                poster="/assets/images/gallery/gallery12.JPG"
               />
               <VideoCard
                 number="02"
