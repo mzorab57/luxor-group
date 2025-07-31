@@ -95,7 +95,7 @@ const Hero = () => {
             <div dir="ltr" className="flex space-x-4   cursor-pointer">
               <Link
                 to="/gallery"
-                smooth={true}
+                // smooth={true}
                 duration={500}
                 className="bg-primary hover:bg-primary/90  hover:border-primary border border-primary rounded-full text-white lg:px-6 px-2 lg:py-3 py-1.5 whitespace-nowrap text-md font-jost text-lg flex items-center space-x-2"
               >
@@ -103,7 +103,7 @@ const Hero = () => {
               </Link>
               <Link
                 to="/video"
-                smooth={true}
+                // smooth={true}
                 duration={500}
                 className="bg-white/10 backdrop-blur-sm text-white border border-gray-500 hover:border-white/40 transition-colors duration-300 rounded-full lg:px-6 px-2 lg:py-3 py-1.5 whitespace-nowrap font-jost text-lg flex items-center space-x-2"
               >

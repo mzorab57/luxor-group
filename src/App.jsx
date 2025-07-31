@@ -1,11 +1,16 @@
-import  { useEffect } from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Router from "./routes";
 import Header from "./components/layout/Header/Header";
 import Footer from "./components/layout/Footer/Footer";
 
 function App() {
+  const location = useLocation();
+
+  // Pages where we don't want to show Header and Footer
+  const hideHeaderFooter = ["/login", "/dashboard"].includes(location.pathname);
 
   useEffect(() => {
     AOS.init({
@@ -17,13 +22,13 @@ function App() {
     AOS.refresh(); // Ensure re-initialization to avoid stale animations
   }, []);
 
-  return(
-  <>
-  <Header />
-   <Router />;
-   <Footer />
-  </>
-)
+  return (
+    <>
+      {!hideHeaderFooter && <Header />}
+      <Router />
+      {!hideHeaderFooter && <Footer />}
+    </>
+  );
 }
 
 export default App;

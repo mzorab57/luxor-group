@@ -99,12 +99,12 @@ const Project = () => {
         <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-primary/20 rounded-full blur-2xl"></div>
       </div>
       {/* Decorative Elements */}
-
+  <AnimatedComponent animationType="fade-up" dataAosDuration={1000} delay={200}>
       <div className="absolute inset-0">
         {/* Animated Gradient Orbs */}
         <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-primary/20 via-amber-500/10 to-orange-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-purple-500/15 via-pink-500/10 to-primary/5 rounded-full blur-3xl animate-float-reverse"></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-r from-emerald-500/20 via-teal-500/10 to-cyan-500/15 rounded-full blur-2xl animate-float-medium"></div>
+        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-r from-primary/20 via-teal-500/5 to-cyan-500/5 rounded-full blur-2xl animate-float-medium"></div>
 
         {/* chwar goshakan Geometric Patterns */}
         <div className="absolute top-32 right-1/4 w-32 h-32 border border-primary/10 rotate-45 animate-spin-slow"></div>
@@ -112,7 +112,7 @@ const Project = () => {
         {/* <div className="absolute top-10 left-1/3 w-32 h-32 border border-primary/10 rotate-45 animate-spin-slow"></div> */}
         <div className="absolute top-5 left-1/4 w-10 h-10 border-2 border-purple-300/15 animate-spin-slow  "></div>
       </div>
-
+</AnimatedComponent>
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16 max-w-7xl  w-full place-self-center">

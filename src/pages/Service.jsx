@@ -180,6 +180,7 @@ const Service = () => {
       ref={sectionRef}
       className="relative py-32 bg-gradient-to-br from-[#0a0a0a] via-[#19160f] to-[#1a1a1a] overflow-hidden"
     >
+      <AnimatedComponent animationType="fade-up" dataAosDuration={1000} delay={200}>
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0">
         {/* Animated Gradient Orbs */}
@@ -191,7 +192,7 @@ const Service = () => {
         <div className="absolute top-40 right-1/4 w-32 h-32 border border-primary/10 rotate-45 animate-spin-slow"></div>
         <div className="absolute bottom-40 left-1/4 w-24 h-24 border-2 border-purple-500/10 rounded-full animate-bounce-slow"></div>
       </div>
-
+</AnimatedComponent>
       {/* Floating Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(15)].map((_, i) => (
@@ -230,14 +231,13 @@ const Service = () => {
         <div className="relative mb-20 text-center">
           {/* Header */}
           <div className="relative mb-12 sm:mb-16 lg:mb-20 text-center">
+             <AnimatedComponent animationType="fade-up">
             <h4
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
               className="text-primary text-center font-medium tracking-wider uppercase mb-3"
             >
               {t("our_bst_services")}
             </h4>
+            </AnimatedComponent>
             <AnimatedComponent animationType="fade-up">
               <div className="relative">
                 <h1 className="lg:text-5xl text-4xl leading-relaxed font-jost font-medium uppercase text-gray-200">
@@ -434,7 +434,7 @@ const Service = () => {
       )}
 
       {/* Enhanced Custom Styles */}
-      <style jsx>{`
+      <style >{`
         @keyframes fadeIn {
           from {
             opacity: 0;

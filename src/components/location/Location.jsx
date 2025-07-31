@@ -24,7 +24,7 @@ const Location = () => {
         <div className="relative mb-12 sm:mb-16 lg:mb-20 text-center">
           <h4
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            // whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-primary text-center font-medium tracking-wider uppercase mb-3"
           >

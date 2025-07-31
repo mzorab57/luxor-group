@@ -58,11 +58,11 @@ const Gallery = () => {
           <div className="w-12 h-12 border-4 border-primary border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+        <div className="max-w-7xl mt-10 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 p-3 ">
           {gallery.map((item) => (
             <div
               key={item.id}
-              className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded overflow-hidden shadow hover:scale-105 transition-transform duration-300 my-10"
+              className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded overflow-hidden shadow hover:scale-105 transition-transform duration-300 my-3"
             >
               <div className="relative h-72">
                 <img
@@ -94,7 +94,7 @@ const Gallery = () => {
 
       {isModalOpen && selectedItem && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 p-4">
-          <div className="bg-[#23201a] h-[42rem] max-w-3xl w-full rounded-lg overflow-y-auto relative p-6 border border-primary/20">
+          <div className="bg-[#23201a] h-[45rem] max-w-3xl w-full rounded-lg overflow-y-auto relative p-6 border border-primary/20">
             <button
               onClick={closeModal}
               className="absolute top-4 right-4 text-white hover:text-primary"

@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import LoadingScreen from "../components/loading/LoadingScreen";
+import PrivateRoute from "../components/auth/PrivateRoute";
 
 // Lazy load components with delay to simulate network
 const Hero = lazy(
@@ -95,6 +96,14 @@ const MainDashboard = lazy(
     )
 );
 
+// Auth pages
+const Login = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve(import("../components/auth/Login")), 500)
+    )
+);
+
 const LazyComponent = ({ children }) => (
   <Suspense fallback={<LoadingScreen />}>{children}</Suspense>
 );
@@ -176,11 +185,21 @@ const AppRoutes = () => {
           }
         />
         <Route
-          path="/dashboard"
+          path="/login"
           element={
             <LazyComponent>
-              <MainDashboard />
+              <Login />
             </LazyComponent>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <LazyComponent>
+                <MainDashboard />
+              </LazyComponent>
+            </PrivateRoute>
           }
         />
       </Routes>

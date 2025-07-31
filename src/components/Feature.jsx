@@ -52,7 +52,7 @@ const features = [
 ];
 
 const Feature = () => (
-  <section className="py-12 bg-[#19160f] bg-gradient-to-br from-primary/10 to-transparent  border-primary/20 container  w-full max-w-full relative  ">
+  <section className="py-12 px-3 bg-[#19160f] bg-gradient-to-br from-primary/10 to-transparent  border-primary/20 container  w-full max-w-full relative  ">
       {/* Decorative Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-40 left-10 w-40 h-40 bg-primary/15 rounded-full blur-3xl"></div>

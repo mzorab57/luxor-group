@@ -1,11 +1,26 @@
 import React, { useState } from "react";
 import { Box, Button, Stack } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { LogOut, User } from "lucide-react";
 import GalleryDashboard from "./GalleryDashboard";
 import ProjectDashboard from "./ProjectDashboard";
 import VideoDashboard from "./VideoDashboard";
 
 export default function MainDashboard() {
   const [activeTab, setActiveTab] = useState("gallery");
+  const navigate = useNavigate();
+
+  const username = localStorage.getItem("username");
+
+  const handleLogout = () => {
+    // Clear localStorage
+    localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("username");
+    localStorage.removeItem("loginTime");
+
+    // Redirect to login
+    navigate("/login");
+  };
 
   const renderActive = () => {
     switch (activeTab) {
@@ -34,10 +49,50 @@ export default function MainDashboard() {
         justifyContent: "flex-start",
       }}
     >
+      {/* Dashboard Header */}
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mt: 15,
+          mb: 3,
+          p: 2,
+          backgroundColor: "rgba(255, 255, 255, 0.05)",
+          borderRadius: 2,
+          border: "1px solid rgba(255, 255, 255, 0.1)",
+        }}
+      >
+        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+          <User className="w-8 h-8 text-yellow-500" />
+          <Box>
+            <h1 className="text-2xl font-bold text-white">Dashboard</h1>
+            <p className="text-gray-400">Welcome, {username}</p>
+          </Box>
+        </Box>
+
+        <Button
+          variant="outlined"
+          onClick={handleLogout}
+          sx={{
+            color: "#ef4444",
+            borderColor: "#ef4444",
+            "&:hover": {
+              backgroundColor: "rgba(239, 68, 68, 0.1)",
+              borderColor: "#ef4444",
+            },
+          }}
+          startIcon={<LogOut className="w-4 h-4" />}
+        >
+          Logout
+        </Button>
+      </Box>
+
       <Stack
         direction="row"
         spacing={2}
-        sx={{ mt: 15, width: "100%" }}
+        sx={{ width: "100%" }}
         justifyContent="center"
         alignItems="center"
       >

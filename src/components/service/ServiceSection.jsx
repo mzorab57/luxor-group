@@ -1,4 +1,4 @@
-import  { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AnimatedComponent from "../animation/AnimatedComponent";
 import { useTranslation } from "react-i18next";
 
@@ -126,7 +126,7 @@ const ServiceSection = () => {
       <div className="absolute inset-0">
         {/* Animated Gradient Orbs */}
         <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-primary/20 via-amber-500/10 to-orange-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-purple-500/15 via-pink-500/10 to-rose-500/15 rounded-full blur-3xl animate-float-reverse"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-purple-500/5 via-pink-500/5 to-rose-500/5 rounded-full blur-3xl animate-float-reverse"></div>
         <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-r from-emerald-500/20 via-teal-500/10 to-cyan-500/15 rounded-full blur-2xl animate-float-medium"></div>
 
         {/* chwar goshakan Geometric Patterns */}
@@ -174,11 +174,11 @@ const ServiceSection = () => {
           <div className="relative mb-12 sm:mb-16 lg:mb-20 text-center">
             <h4
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              // whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="text-primary text-center font-medium tracking-wider uppercase mb-3"
             >
-              {t("our_bst_services")}
+              {t("Our Bst Services")}
             </h4>
             <AnimatedComponent animationType="fade-up">
               <div className="relative">
@@ -376,7 +376,7 @@ const ServiceSection = () => {
       )}
 
       {/* Enhanced Custom Styles */}
-      <style jsx>{`
+      <style>{`
         @keyframes fadeIn {
           from {
             opacity: 0;
