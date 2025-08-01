@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PagesHeader from "../components/ui/PagesHeader";
 
-const API_URL = "https://darkblue-seal-879137.hostingersite.com/api/gallery/get.php";
+const API_URL = "https://luxorgroups.com/api/gallery/get.php";
 
 const Gallery = () => {
   const [gallery, setGallery] = useState([]);

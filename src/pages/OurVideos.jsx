@@ -2,7 +2,7 @@ import  { useState, useEffect } from "react";
 import PagesHeader from "../components/ui/PagesHeader";
 import { AiOutlinePlayCircle } from "react-icons/ai";
 
-const API_URL = "https://darkblue-seal-879137.hostingersite.com/api/video/get.php";
+const API_URL = "https://luxorgroups.com/api/video/get.php";
 
 const OurVideos = () => {
   const [videos, setVideos] = useState([]);
@@ -62,7 +62,7 @@ const OurVideos = () => {
             >
               <div className="absolute inset-0 border-2 border-primary/80 overflow-hidden">
                 <video
-                  src={`https://darkblue-seal-879137.hostingersite.com/api/uploads/video/${video.video}`}
+                  src={`https://luxorgroups.com/api/uploads/video/${video.video}`}
                   loading="lazy"
                   className="h-full w-full object-cover transform transition duration-700 group-hover:scale-110"
                 />
@@ -104,7 +104,7 @@ const OurVideos = () => {
               className="w-full max-h-[80vh] rounded"
             >
               <source
-                src={`https://darkblue-seal-879137.hostingersite.com/api/uploads/video/${selectedVideo.video}`}
+                src={`https://luxorgroups.com/api/uploads/video/${selectedVideo.video}`}
                 type="video/mp4"
               />
             </video>

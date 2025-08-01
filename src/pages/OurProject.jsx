@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PagesHeader from "../components/ui/PagesHeader";
 
-const API_URL = "https://darkblue-seal-879137.hostingersite.com/api/project/get.php";
+const API_URL = "https://luxorgroups.com/api/project/get.php";
 
 const OurProject = () => {
   const [projects, setProjects] = useState([]);
@@ -80,14 +80,14 @@ const OurProject = () => {
               className="bg-gradient-to-br place-self-center w-[25rem]  lg:size-full from-primary/10 to-transparent border border-primary/20 rounded shadow-lg overflow-hidden flex flex-col lg:flex-row hover:scale-[1.02] transition-transform duration-300"
             >
               <img
-                src={`https://darkblue-seal-879137.hostingersite.com/api/uploads/project/${project.images[0]}`}
+                src={`https://luxorgroups.com/api/uploads/project/${project.images[0]}`}
                 alt={project.title}
                 className="w-full lg:h-full h-[18rem] lg:w-1/2 cursor-pointer"
                 onClick={() =>
                   openModal(
                     project.images.map(
                       (img) =>
-                        `https://darkblue-seal-879137.hostingersite.com/api/uploads/project/${img}`
+                        `https://luxorgroups.com/api/uploads/project/${img}`
                     ),
                     0
                   )
@@ -106,14 +106,14 @@ const OurProject = () => {
                   {project.images.slice(1).map((img, idx) => (
                     <img
                       key={idx}
-                      src={`https://darkblue-seal-879137.hostingersite.com/api/uploads/project/${img}`}
+                      src={`https://luxorgroups.com/api/uploads/project/${img}`}
                       alt={project.title + " preview " + (idx + 2)}
                       className="w-12 h-12 object-cover rounded border border-primary/30 cursor-pointer transition-transform hover:scale-110"
                       onClick={() =>
                         openModal(
                           project.images.map(
                             (i) =>
-                              `https://darkblue-seal-879137.hostingersite.com/api/uploads/project/${i}`
+                              `https://luxorgroups.com/api/uploads/project/${i}`
                           ),
                           idx + 1
                         )

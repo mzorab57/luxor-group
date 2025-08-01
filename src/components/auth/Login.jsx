@@ -41,7 +41,7 @@ const Login = () => {
       });
 
       const response = await fetch(
-        "https://darkblue-seal-879137.hostingersite.com/api/login/login.php",
+        "https://luxorgroups.com/api/login/login.php",
         {
           method: "POST",
           headers: {
@@ -124,7 +124,7 @@ const Login = () => {
         formDataPayload.append("password", formData.password);
 
         const alternativeResponse = await fetch(
-          "https://darkblue-seal-879137.hostingersite.com/api/login/login.php",
+          "https://luxorgroups.com/api/login/login.php",
           {
             method: "POST",
             body: formDataPayload,

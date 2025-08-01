@@ -18,7 +18,7 @@ import {
 import { DataGrid } from "@mui/x-data-grid";
 import { Add, Edit, Delete, Cancel, Save } from "@mui/icons-material";
 
-const API_URL = "https://darkblue-seal-879137.hostingersite.com/api/video";
+const API_URL = "https://luxorgroups.com/api/video";
 
 const initialForm = { title: "", description: "", video: null };
 
