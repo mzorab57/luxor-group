@@ -66,7 +66,7 @@ const Gallery = () => {
             >
               <div className="relative h-72">
                 <img
-                  src={`https://darkblue-seal-879137.hostingersite.com/api/uploads/gallery/${item.images[0]}`}
+                  src={`https://luxorgroups.com/api/uploads/gallery/${item.images[0]}`}
                   alt={item.title}
                   className="w-full h-full object-cover"
                 />
@@ -107,7 +107,7 @@ const Gallery = () => {
             
             <div className="relative h-96 mb-6">
               <img
-                src={`https://darkblue-seal-879137.hostingersite.com/api/uploads/gallery/${selectedImage}`}
+                src={`https://luxorgroups.com/api/uploads/gallery/${selectedImage}`}
                 alt={selectedItem.title}
                 className="w-full h-full object-contain rounded relative  "
               />
@@ -130,7 +130,7 @@ const Gallery = () => {
               {selectedItem.images.map((img, i) => (
                 <img
                   key={i}
-                  src={`https://darkblue-seal-879137.hostingersite.com/api/uploads/gallery/${img}`}
+                  src={`https://luxorgroups.com/api/uploads/gallery/${img}`}
                   alt={`thumb-${i}`}
                   className={`w-24 h-24 object-cover rounded cursor-pointer border-2 ${
                     selectedImage === img
