@@ -1,10 +1,12 @@
 import  { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import PagesHeader from "../components/ui/PagesHeader";
 import { AiOutlinePlayCircle } from "react-icons/ai";
 
 const API_URL = "https://luxorgroups.com/api/video/get.php";
 
 const OurVideos = () => {
+  const { t } = useTranslation();
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
@@ -41,7 +43,7 @@ const OurVideos = () => {
     <div className="bg-[#19160f] relative">
       <PagesHeader
         img={"/assets/images/gallery/gallery16.jpg"}
-        title={"Our Videos"}
+        title={t("Our_Videos")}
       />
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>

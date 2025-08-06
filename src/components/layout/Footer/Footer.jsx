@@ -1,8 +1,10 @@
 import React from "react";
 import { MdOutlineEmail, MdOutlinePhone, MdOutlineLocationOn   } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 const Footer = () => {
- 
+  const { t } = useTranslation();
+
   return (
     <footer className="relative z-[0] py-20 bg-[#19160f] overflow-hidden ">
       {/* Background Pattern Overlay */}
@@ -30,7 +32,7 @@ const Footer = () => {
               Luxor Groups
             </h3>
             <p className="text-gray-300 leading-relaxed">
-             At Luxor, art is more than decoration—it's an expression of individuality.
+              {t("footer.company_description")}
             </p>
             <div className="flex space-x-4">
               <a
@@ -58,7 +60,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-white mb-4">
-              Quick Links
+              {t("footer.quick_links")}
             </h4>
             <ul className="space-y-3">
               <li>
@@ -67,7 +69,7 @@ const Footer = () => {
                   className="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center group"
                 >
                   <span className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
-                  About Us
+                  {t(`nav.${"about"}`)}
                 </Link>
               </li>
               <li>
@@ -77,7 +79,7 @@ const Footer = () => {
                   className="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center group"
                 >
                   <span className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
-                  Services
+                  {t(`nav.${"service"}`)}
                 </Link>
               </li>
              
@@ -88,7 +90,7 @@ const Footer = () => {
                   className="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center group"
                 >
                   <span className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
-                  Gallery
+                  {t(`nav.${"gallery"}`)}
                 </Link>
               </li>
               <li>
@@ -98,7 +100,7 @@ const Footer = () => {
                   className="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center group"
                 >
                   <span className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
-                  Video
+                  {t(`nav.${"video"}`)}
                 </Link>
               </li>
               <li>
@@ -108,7 +110,7 @@ const Footer = () => {
                   className="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center group"
                 >
                   <span className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
-                  Project
+                   {t(`nav.${"project"}`)}
                 </Link>
               </li>
             </ul>
@@ -117,24 +119,24 @@ const Footer = () => {
           {/* Services */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-white mb-4">
-              Our Services
+              {t("footer.our_services")}
             </h4>
             <ul className="space-y-3">
               <li className="text-gray-300 flex items-center">
                 <span className="w-2 h-2 bg-primary/60 rounded-full mr-3"></span>
-               Custom Large-Scale Painting Production
+                {t("footer.services_list.service1")}
               </li>
               <li className="text-gray-300 flex items-center">
                 <span className="w-2 h-2 bg-primary/60 rounded-full mr-3"></span>
-                Frame Selection & Custom Framing
+                {t("footer.services_list.service2")}
               </li>
               <li className="text-gray-300 flex items-center">
                 <span className="w-2 h-2 bg-primary/60 rounded-full mr-3"></span>
-                Bulk Painting Production
+                {t("footer.services_list.service3")}
               </li>
               <li className="text-gray-300 flex items-center">
                 <span className="w-2 h-2 bg-primary/60 rounded-full mr-3"></span>
-               Art Installation & Setup
+                {t("footer.services_list.service4")}
               </li>
             </ul>
           </div>
@@ -167,7 +169,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-gray-400">
-            &copy; {new Date().getFullYear()} Luxor Groups. All rights reserved. | Developed by{' '}
+            &copy; {new Date().getFullYear()} Luxor Groups. {t("footer.copyright")} | {t("footer.developed_by")}{' '}
             <a 
               href="https://wa.me/9647701411893" 
               target="_blank" 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { GrLanguage } from "react-icons/gr";
 import { useTranslation } from "react-i18next";
 
@@ -30,14 +30,14 @@ const LanguageSwitcher = () => {
       </div>
 
       <div
-        className={`absolute text-center -right-10 mt-2 w-32 py-2 bg-white border-2 border-primary rounded-lg shadow-xl text-black z-50 transition-all duration-300 ease-in-out transform ${
-          isOpen ? "opacity-100 scale-100" : "opacity-0 scale-90 pointer-events-none"
+        className={`absolute text-center -right-5 mt-2 w-24 py-2 bg-[#19160f] border border-primary rounded-lg shadow-xl text-white  z-50 transition-all duration-300 ease-in-out transform ${
+          isOpen ? " translate-y-0 opacity-100 scale-100" : "translate-y-16 opacity-0 scale-90 pointer-events-none"
         }`}
       >
-        {["English", "Arabic", "Kurdish"].map((lang, index) => (
+        {["English", "عربي", "کوردی"].map((lang, index) => (
           <div
             key={index}
-            className="block px-4 py-2 text-black text-sm hover:bg-primary/30 cursor-pointer"
+            className="block px-4 py-2 text-white text-sm hover:bg-primary/30 cursor-pointer"
             onClick={() => changeLanguage(["en", "ar", "ku"][index])}
           >
             {lang}

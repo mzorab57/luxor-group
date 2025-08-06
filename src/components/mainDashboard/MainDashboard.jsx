@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, Button, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { LogOut, User } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import GalleryDashboard from "./GalleryDashboard";
 import ProjectDashboard from "./ProjectDashboard";
 import VideoDashboard from "./VideoDashboard";
@@ -9,6 +10,7 @@ import VideoDashboard from "./VideoDashboard";
 export default function MainDashboard() {
   const [activeTab, setActiveTab] = useState("gallery");
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const username = localStorage.getItem("username");
 
@@ -67,8 +69,8 @@ export default function MainDashboard() {
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <User className="w-8 h-8 text-yellow-500" />
           <Box>
-            <h1 className="text-2xl font-bold text-white">Dashboard</h1>
-            <p className="text-gray-400">Welcome, {username}</p>
+            <h1 className="text-2xl font-bold text-white">{t("nav.dashboard")}</h1>
+            <p className="text-gray-400">{t("dashboard.welcome")}, {username}</p>
           </Box>
         </Box>
 
@@ -85,7 +87,7 @@ export default function MainDashboard() {
           }}
           startIcon={<LogOut className="w-4 h-4" />}
         >
-          Logout
+          {t("dashboard.logout")}
         </Button>
       </Box>
 
@@ -100,19 +102,19 @@ export default function MainDashboard() {
           variant={activeTab === "gallery" ? "contained" : "outlined"}
           onClick={() => setActiveTab("gallery")}
         >
-          Gallery
+          {t("dashboard.gallery")}
         </Button>
         <Button
           variant={activeTab === "project" ? "contained" : "outlined"}
           onClick={() => setActiveTab("project")}
         >
-          Project
+          {t("dashboard.project")}
         </Button>
         <Button
           variant={activeTab === "video" ? "contained" : "outlined"}
           onClick={() => setActiveTab("video")}
         >
-          Video
+          {t("dashboard.video")}
         </Button>
       </Stack>
 

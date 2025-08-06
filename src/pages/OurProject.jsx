@@ -57,7 +57,7 @@ const OurProject = () => {
   return (
     <div className="bg-[#19160f] relative overflow-hidden">
       <PagesHeader
-          img={"/assets/images/gallery/gallery18.jpg"}
+          img={"/assets/images/gallery/gallery17.jpg"}
         title={"Projects"}
       />
 

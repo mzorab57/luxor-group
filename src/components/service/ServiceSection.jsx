@@ -2,60 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import AnimatedComponent from "../animation/AnimatedComponent";
 import { useTranslation } from "react-i18next";
 
-const services = [
-  {
-    id: "01",
-    title: "Custom Large-Scale Painting Production",
-    description: "Masterpieces up to 8 meters that transform spaces",
-    points: [
-      "Creation of paintings up to 8 meters in size",
-      "Customized artwork tailored to client specifications",
-      "Artistic collaborations and commissions",
-    ],
-    image: "/assets/images/gallery/gallery6.jpg",
-    color: "from-amber-500/20 to-orange-600/20",
-    accentColor: "amber-400",
-  },
-  {
-    id: "02",
-    title: "Frame Selection & Custom Framing",
-    description: "Perfect frames that complement your artwork",
-    points: [
-      "Wide variety of frame styles and materials",
-      "Custom framing solutions to match artwork and décor",
-      "Frame design consultations",
-    ],
-    image: "/assets/images/gallery/gallery11.jpg",
-    color: "from-purple-500/20 to-pink-600/20",
-    accentColor: "purple-400",
-  },
-  {
-    id: "03",
-    title: "Bulk Painting Production",
-    description: "Large-scale production with artistic excellence",
-    points: [
-      "Rapid manufacturing of hundreds of paintings for large projects",
-      "Streamlined production processes for quick turnaround",
-      "Volume discounts for large orders",
-    ],
-    image: "/assets/images/gallery/gallery7.jpg",
-    color: "from-emerald-500/20 to-teal-600/20",
-    accentColor: "emerald-400",
-  },
-  {
-    id: "04",
-    title: "Art Installation & Setup",
-    description: "Professional installation with precision care",
-    points: [
-      "On-site installation of large paintings",
-      "Professional handling and safety measures",
-      "Post-installation support",
-    ],
-    image: "/assets/images/gallery/gallery15.jpg",
-    color: "from-blue-500/20 to-cyan-600/20",
-    accentColor: "blue-400",
-  },
-];
+
 
 const ServiceSection = () => {
   const cursorRef = useRef(null);
@@ -63,6 +10,44 @@ const ServiceSection = () => {
   const [hoveredService, setHoveredService] = useState(null);
   const sectionRef = useRef(null);
   const { t } = useTranslation();
+  const services = [
+  {
+    id: "01",
+    title: t("services.service_01.title"),
+    description: t("services.service_01.description"),
+    points: t("services.service_01.points", { returnObjects: true }),
+    image: "/assets/images/gallery/gallery6.jpg",
+    color: "from-amber-500/20 to-orange-600/20",
+    accentColor: "amber-400",
+  },
+  {
+    id: "02",
+    title: t("services.service_02.title"),
+    description: t("services.service_02.description"),
+    points: t("services.service_02.points", { returnObjects: true }),
+    image: "/assets/images/gallery/gallery11.jpg",
+    color: "from-purple-500/20 to-pink-600/20",
+    accentColor: "purple-400",
+  },
+  {
+    id: "03",
+    title: t("services.service_03.title"),
+    description: t("services.service_03.description"),
+    points: t("services.service_03.points", { returnObjects: true }),
+    image: "/assets/images/gallery/gallery7.jpg",
+    color: "from-emerald-500/20 to-teal-600/20",
+    accentColor: "emerald-400",
+  },
+  {
+    id: "04",
+    title: t("services.service_04.title"),
+    description: t("services.service_04.description"),
+    points: t("services.service_04.points", { returnObjects: true }),
+    image: "/assets/images/gallery/gallery15.jpg",
+    color: "from-blue-500/20 to-cyan-600/20",
+    accentColor: "blue-400",
+  },
+];
 
   // Enhanced cursor effect
   useEffect(() => {
@@ -178,15 +163,15 @@ const ServiceSection = () => {
               transition={{ duration: 0.6 }}
               className="text-primary text-center font-medium tracking-wider uppercase mb-3"
             >
-              {t("Our Bst Services")}
+              {t("Our_Bst_Services")}
             </h4>
             <AnimatedComponent animationType="fade-up">
               <div className="relative">
                 <h1 className="lg:text-5xl text-4xl leading-relaxed font-jost font-medium uppercase text-gray-200">
-                  {t(" Services We're Offering")}
+                  {t("Services_We_Are_Offering")}
                 </h1>
                 <div className="lg:text-6xl whitespace-nowrap text-5xl absolute lg:-top-8 -top-10 left-1/2 transform -translate-x-1/2 leading-relaxed font-bold uppercase text-gray-500 opacity-10">
-                  {t(" Services We're Offering")}
+                  {t("Services_We_Are_Offering")}
                 </div>
                 {/* Decorative Elements */}
                 <div className="absolute -top-4 -left-4 w-8 h-8 border-2 border-primary/30 rotate-45"></div>
@@ -255,7 +240,8 @@ const ServiceSection = () => {
                     className="hover-target bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/40 text-primary px-4 py-1 rounded-full font-medium backdrop-blur-sm transform transition-all duration-300 hover:from-primary hover:to-amber-500 hover:text-black hover:scale-105  translate-y-4 group-hover:translate-y-0 delay-200"
                     onClick={() => setSelectedService(service)}
                   >
-                    Explore Details
+                    
+                    {t("Explore_More")}
                   </button>
                 </div>
               </div>
@@ -325,7 +311,7 @@ const ServiceSection = () => {
               <div className="grid md:grid-cols-2 gap-2">
                 <div className="space-y-2">
                   <h3 className="text-xl font-semibold text-white">
-                    Key Features
+                  {t("Key_Features")}
                   </h3>
                   <div className="space-y-1">
                     {selectedService.points.map((point, idx) => (
@@ -344,7 +330,7 @@ const ServiceSection = () => {
                   </div>
                 </div>
 
-                <div className="space-y-4">
+                {/* <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
                     Why Choose This Service?
                   </h3>
@@ -355,7 +341,7 @@ const ServiceSection = () => {
                       expectations.
                     </p>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               {/* Action Buttons */}

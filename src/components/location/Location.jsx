@@ -2,8 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { MdOutlineLocationOn, MdOutlinePhone } from "react-icons/md";
 import { TbClockHour5 } from "react-icons/tb";
-import AnimatedComponent from "../animation/AnimatedComponent";
+import { MdOutlineEmail } from "react-icons/md";
 import { useTranslation } from "react-i18next";
+import AnimatedComponent from "../animation/AnimatedComponent";
 
 const Location = () => {
   const { t } = useTranslation();
@@ -28,7 +29,7 @@ const Location = () => {
             transition={{ duration: 0.6 }}
             className="text-primary text-center font-medium tracking-wider uppercase mb-3"
           >
-            Find US
+            {t("Find_Us")}
           </h4>
           <AnimatedComponent animationType="fade-right">
             <div className="relative">
@@ -95,11 +96,10 @@ const Location = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-white mb-2">
-                      Our Address
+                      {t("Our_Address")}
                     </h3>
                     <p className="text-gray-300 leading-relaxed">
-                      Sulaymaniyah Bakhtiari Street - above Youth Center - upper
-                      floor of City Star Bakery
+                      {t("Address_Text")}
                     </p>
                   </div>
                 </div>
@@ -115,12 +115,12 @@ const Location = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-white mb-2">
-                      Working Hours
+                      {t("Working_Hours")}
                     </h3>
                     <div className="space-y-1 text-gray-300">
-                      <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                      <p>Saturday: 9:00 AM - 2:00 PM</p>
-                      <p>Sunday: Closed</p>
+                      <p>{t("Working_Hours_Weekday")}</p>
+                      <p>{t("Working_Hours_Saturday")}</p>
+                      <p>{t("Working_Hours_Sunday")}</p>
                     </div>
                   </div>
                 </div>
@@ -136,16 +136,18 @@ const Location = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-white mb-2">
-                      Contact Info
+                      {t("Contact_Info")}
                     </h3>
                     <div className="space-y-2 text-gray-300">
                       <p className="flex items-center">
                         <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-                        Phone: 07706141190
+                        {t("Phone")}
+                        <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
+                        {t("Phone1")}
                       </p>
                       <p className="flex items-center">
                         <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-                        Email: info@luxorgroups.com
+                        {t("Email")}
                       </p>
                     </div>
                   </div>
@@ -166,15 +168,13 @@ const Location = () => {
               >
               
                 <h3 className="text-2xl font-bold text-white mb-3">
-                  Visit Our Gallery
+                  {t("Visit_Gallery")}
                 </h3>
                 <p className="text-gray-300 mb-6">
-                  Experience our stunning artwork in person. Our gallery
-                  showcases the finest collection of large-scale paintings and
-                  custom artwork.
+                  {t("Visit_Gallery_Text")}
                 </p>
                 <button className="px-6 py-3 bg-primary text-[#19160f] rounded-full font-medium hover:bg-primary/90 transition-colors">
-                  Schedule a Visit
+                  {t("Schedule_Visit")}
                 </button>
               </div>
 
@@ -190,15 +190,13 @@ const Location = () => {
               >
                 
                 <h3 className="text-2xl font-bold text-white mb-3">
-                  Get Service
+                  {t("Get_Service")}
                 </h3>
                 <p className="text-gray-300 mb-6">
-                  We pride ourselves on offering not only a diverse collection
-                  of stunning artworks but also the flexibility to bring your
-                  vision to life.
+                  {t("Get_Service_Text")}
                 </p>
                 <button className="px-6 py-3 border border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-[#19160f] transition-colors">
-                  Get Service
+                 {t("Get_Service")}
                 </button>
               </div>
             </div>

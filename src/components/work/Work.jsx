@@ -2,60 +2,61 @@ import { Link } from "react-router-dom";
 import AnimatedComponent from "../animation/AnimatedComponent";
 import { useTranslation } from "react-i18next";
 import ImageWithFallback from "../common/ImageWithFallback";
-import { getImagePath } from "../../utils/imageUtils";
+
 
 // Service data
-const collectionData = {
+const getCollectionData = (t) => ({
   projects: [
     {
       id: 1,
-      title: "City Star Caffe",
-      category: "Interior",
+      title: t("work.projects.city_star_caffe.title"),
+      category: t("work.projects.city_star_caffe.category"),
       image: "/assets/images/gallery/gallery6.jpg",
       link: "gallery",
       size: "2x",
     },
     {
       id: 7,
-      title: "Stylish Family Appartment",
-      category: "Interior",
+      title: t("work.projects.stylish_apartment.title"),
+      category: t("work.projects.stylish_apartment.category"),
       image: "/assets/images/gallery/gallery11.jpg",
       link: "gallery",
       size: "2x",
     },
     {
       id: 2,
-      title: "Minimal Guests House",
-      category: ["Decor", "Interior"],
+      title: t("work.projects.minimal_house.title"),
+      category: t("work.projects.minimal_house.category", { returnObjects: true }),
       image: "/assets/images/gallery/gallery10.jpg",
       link: "gallery",
     },
     {
       id: 3,
-      title: "Art Family",
-      category: ["Decor", "Interior"],
+      title: t("work.projects.art_family.title"),
+      category: t("work.projects.art_family.category", { returnObjects: true }),
       image: "/assets/images/gallery/gallery7.jpg",
       link: "gallery",
     },
     {
       id: 4,
-      title: "Private House in Spain",
-      category: ["Decor", "Interior"],
+      title: t("work.projects.spain_house.title"),
+      category: t("work.projects.spain_house.category", { returnObjects: true }),
       image: "/assets/images/gallery/gallery8.jpg",
       link: "gallery",
     },
     {
       id: 5,
-      title: "Modern Villa in Sitak",
-      category: "Interior",
+      title: t("work.projects.sitak_villa.title"),
+      category: t("work.projects.sitak_villa.category"),
       image: "/assets/images/gallery/gallery9.jpg",
       link: "gallery",
     },
   ],
-};
+});
 
 const Work = () => {
   const { t } = useTranslation();
+  const collectionData = getCollectionData(t);
   return (
     <section className="pt-10 bg-[#0f0d08] bg-gradient-to-br from-primary/10 to-transparent  border-primary/20 relative  overflow-hidden">
       {/* Decorative Elements */}
@@ -86,16 +87,16 @@ const Work = () => {
       <div className="relative mb-12 sm:mb-16 lg:mb-20 text-center">
         <AnimatedComponent animationType="fade-up">
           <h4 className="text-primary text-center font-medium tracking-wider uppercase mb-3">
-            {t("gallery")}
+            {t(`nav.${"gallery"}`)}
           </h4>
         </AnimatedComponent>
         <AnimatedComponent animationType="fade-right">
           <div className="relative">
             <h1 className="text-4xl lg:text-5xl leading-relaxed font-jost font-medium uppercase text-gray-200">
-              {t("our_video_projects")}
+              {t("Visual_Showcasee")}
             </h1>
             <div className="lg:text-6xl text-5xl whitespace-nowrap absolute lg:-top-8 -top-10 left-1/2 transform -translate-x-1/2 leading-relaxed font-bold uppercase text-gray-500 opacity-10">
-              {t("our_video_projects")}
+              {t("Visual_Showcasee")}
             </div>
           </div>
         </AnimatedComponent>

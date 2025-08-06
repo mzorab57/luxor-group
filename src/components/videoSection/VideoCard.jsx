@@ -24,6 +24,7 @@ const VideoCard = ({ number, title, description, videoSrc, poster }) => {
             className="h-full w-full object-cover transform transition duration-700 group-hover:scale-110"
           /> */}
           <video
+            poster={poster}
             src={videoSrc}
             loading="lazy"
             className="h-full w-full object-cover transform transition duration-700 group-hover:scale-110"

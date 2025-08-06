@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import PagesHeader from "../components/ui/PagesHeader";
+import { useTranslation } from "react-i18next";
 
 const API_URL = "https://luxorgroups.com/api/gallery/get.php";
 
 const Gallery = () => {
+  const { t } = useTranslation();
   const [gallery, setGallery] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -47,14 +49,14 @@ const Gallery = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#19160f]">
+    <div dir="ltr" className="min-h-screen bg-[#19160f]">
       <PagesHeader
-        img={"/assets/images/gallery/gallery17.jpg"}
-        title={"Gallery"}
+        img={"/assets/images/gallery/gallery18.jpg"}
+        title={t("nav.gallery")}
       />
 
       {loading ? (
-        <div className="flex justify-center items-center py-20">
+        <div className="flex justify-center  items-center py-20">
           <div className="w-12 h-12 border-4 border-primary border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
@@ -84,7 +86,7 @@ const Gallery = () => {
                   onClick={() => openModal(item)}
                   className="px-2 size-fit h-full place-self-center whitespace-nowrap py-1 text-gray-200 text-sm  bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded hover:bg-primary transition"
                 >
-                  View Details
+                  {t("gallery.view_details")}
                 </button>
               </div>
             </div>
@@ -113,13 +115,13 @@ const Gallery = () => {
               />
               <div className="flex   gap-2 ">
                   <p className="text-gray-300 lg:hidden font-bold bg-gradient-to-br from-primary/20 to-transparent border-primary/80 px-2">
-                    Category:{" "}
+                    {t("gallery.category")}:{" "}
                     <span className="text-sm font-normal">
                       {selectedItem.category}
                     </span>
                   </p>
                   <p className="text-gray-300 lg:hidden font-bold bg-gradient-to-br from-primary/20 to-transparent border-primary/80 px-2">
-                    Size:{" "}
+                    {t("gallery.size")}:{" "}
                     <span className="text-sm font-normal">
                       {selectedItem.size}
                     </span>
@@ -143,27 +145,27 @@ const Gallery = () => {
             </div>
             <div className="flex flex-col-reverse lg:flex-row justify-between gap-x-2">
               <div>
-                <span className="text-gray-200 font-bold">Description </span>
+                <span className="text-gray-200 font-bold">{t("gallery.description")} </span>
                 <p className="text-gray-300 text-sm font-medium">
                   {selectedItem.description}
                 </p>
               </div>
               <div className="flex flex-col gap-1.5">
                 <p className="text-gray-300 font-bold bg-gradient-to-br from-primary/20 to-transparent border-primary/80 px-1 md:px-2 w-fit lg:w-full">
-                  Art.Name:{" "}
+                  {t("gallery.art_name")}:{" "}
                   <span className="text-sm font-normal">
                     {selectedItem.artist_name}
                   </span>
                 </p>
                 <div className="flex gap-1.5">
                   <p className="text-gray-300 hidden lg:block font-bold bg-gradient-to-br from-primary/20 to-transparent border-primary/80 px-1 md:px-2">
-                    Category:{" "}
+                    {t("gallery.category")}:{" "}
                     <span className="text-sm font-normal">
                       {selectedItem.category}
                     </span>
                   </p>
                   <p className="text-gray-300 hidden lg:block font-bold bg-gradient-to-br from-primary/20 to-transparent border-primary/80 px-1 md:px-2">
-                    Size:{" "}
+                    {t("gallery.size")}:{" "}
                     <span className="text-sm font-normal">
                       {selectedItem.size}
                     </span>

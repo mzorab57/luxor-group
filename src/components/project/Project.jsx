@@ -4,81 +4,82 @@ import { Link } from "react-router-dom";
 import AnimatedComponent from "../animation/AnimatedComponent";
 import { useTranslation } from "react-i18next";
 
-const projects = [
+const getProjectData = (t) => [
   {
     id: 1,
-    title: "Modern Interior Design",
-    category: "Interior",
+    title: t("projects.modern_interior.title"),
+    category: t("projects.modern_interior.category"),
     image: "/assets/images/gallery/gallery6.jpg",
-    description: "Luxurious and contemporary interior design solutions",
+    description: t("projects.modern_interior.description"),
   },
   {
     id: 2,
-    title: "Classic Wallpaper Design",
-    category: "Wallpaper",
+    title: t("projects.classic_wallpaper.title"),
+    category: t("projects.classic_wallpaper.category"),
     image: "/assets/images/gallery/gallery12.jpg",
-    description: "Elegant and timeless wallpaper patterns",
+    description: t("projects.classic_wallpaper.description"),
   },
   {
     id: 3,
-    title: "Modern Wall Art",
-    category: "Art",
+    title: t("projects.modern_wall_art.title"),
+    category: t("projects.modern_wall_art.category"),
     image: "/assets/images/gallery/gallery13.jpg",
-    description: "Contemporary wall art and decorations",
+    description: t("projects.modern_wall_art.description"),
   },
   {
     id: 4,
-    title: "Modern Wall Art",
-    category: "Art",
+    title: t("projects.modern_wall_art.title"),
+    category: t("projects.modern_wall_art.category"),
     image: "/assets/images/gallery/gallery10.jpg",
-    description: "Contemporary wall art and decorations",
+    description: t("projects.modern_wall_art.description"),
   },
   {
     id: 5,
-    title: "Modern Wall Art",
-    category: "Art",
+    title: t("projects.modern_wall_art.title"),
+    category: t("projects.modern_wall_art.category"),
     image: "/assets/images/gallery/gallery7.jpg",
-    description: "Contemporary wall art and decorations",
+    description: t("projects.modern_wall_art.description"),
   },
   {
     id: 6,
-    title: "Modern Wall Art",
-    category: "Art",
+    title: t("projects.modern_wall_art.title"),
+    category: t("projects.modern_wall_art.category"),
     image: "/assets/images/gallery/gallery8.jpg",
-    description: "Contemporary wall art and decorations",
+    description: t("projects.modern_wall_art.description"),
   },
   {
     id: 7,
-    title: "Modern Wall Art",
-    category: "Art",
+    title: t("projects.modern_wall_art.title"),
+    category: t("projects.modern_wall_art.category"),
     image: "/assets/images/gallery/gallery9.jpg",
-    description: "Contemporary wall art and decorations",
+    description: t("projects.modern_wall_art.description"),
   },
   {
     id: 8,
-    title: "Modern Wall Art",
-    category: "Art",
+    title: t("projects.modern_wall_art.title"),
+    category: t("projects.modern_wall_art.category"),
     image: "/assets/images/gallery/gallery11.jpg",
-    description: "Contemporary wall art and decorations",
+    description: t("projects.modern_wall_art.description"),
   },
   {
     id: 9,
-    title: "Modern Wall Art",
-    category: "Art",
+    title: t("projects.modern_wall_art.title"),
+    category: t("projects.modern_wall_art.category"),
     image: "/assets/images/gallery/gallery12.jpg",
-    description: "Contemporary wall art and decorations",
+    description: t("projects.modern_wall_art.description"),
   },
   {
     id: 10,
-    title: "Modern Wall Art",
-    category: "Art",
+    title: t("projects.modern_wall_art.title"),
+    category: t("projects.modern_wall_art.category"),
     image: "/assets/images/gallery/gallery13.jpg",
-    description: "Contemporary wall art and decorations",
+    description: t("projects.modern_wall_art.description"),
   },
 ];
 
 const Project = () => {
   const { t } = useTranslation();
+  const projects = getProjectData(t);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -126,17 +127,17 @@ const Project = () => {
             transition={{ duration: 0.6 }}
             className="text-primary text-center font-medium tracking-wider uppercase mb-3"
           >
-            OUR LATEST PROJECTS
+           {t("Our_Latest_Projects")}
           </motion.h4>
           {/* Header */}
           <div className="relative mb-12 sm:mb-16 lg:mb-20 text-center">
             <AnimatedComponent animationType="fade-right">
               <div className="relative">
                 <h1 className="lg:text-5xl text-4xl leading-relaxed font-jost font-medium uppercase text-gray-200">
-                  {t("completed works")}
+                  {t("Completed_Works")}
                 </h1>
                 <div className="lg:text-6xl text-5xl absolute lg:-top-8 -top-10 left-1/2 transform -translate-x-1/2 leading-relaxed font-bold uppercase text-gray-500 opacity-10">
-                  {t("completed works")}
+                  {t("Completed_Works")}
                 </div>
               </div>
             </AnimatedComponent>
@@ -173,17 +174,20 @@ const Project = () => {
             </motion.div>
 
             {/* Current Project */}
+
             <motion.div
               className="relative  w-full max-w-2xl lg:h-[500px] h-[400px] rounded overflow-hidden shadow-xl"
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
+              <Link onClick={()=>window.scrollTo({ top: 0 })} to={`/project`}>
               <img
                 src={projects[currentIndex].image}
                 alt={projects[currentIndex].title}
                 className="w-full h-full object-cover"
               />
+              </Link>
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
                 <h3 className="text-2xl font-bold mb-2">
                   {projects[currentIndex].title}

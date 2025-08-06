@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Example icons as SVGs (replace with your own or use react-icons)
 const icons = [
@@ -44,14 +45,18 @@ const icons = [
   </svg>,
 ];
 
-const features = [
-  { title: "Smart Work", icon: icons[0], link: "/gallery" },
-  { title: "Unique Design", icon: icons[1], link: "/gallery" },
-  { title: "Skilled Team", icon: icons[2], link: "/gallery" },
-  { title: "Best Pricing", icon: icons[3], link: "/gallery" },
+const getFeatures = (t) => [
+  { title: t("features.smart_work"), icon: icons[0], link: "/gallery" },
+  { title: t("features.unique_design"), icon: icons[1], link: "/gallery" },
+  { title: t("features.skilled_team"), icon: icons[2], link: "/gallery" },
+  { title: t("features.best_pricing"), icon: icons[3], link: "/gallery" },
 ];
 
-const Feature = () => (
+const Feature = () => {
+  const { t } = useTranslation();
+  const features = getFeatures(t);
+
+  return (
   <section className="py-12 px-3 bg-[#19160f] bg-gradient-to-br from-primary/10 to-transparent  border-primary/20 container  w-full max-w-full relative  ">
       {/* Decorative Elements */}
       <div className="absolute inset-0">
@@ -64,7 +69,7 @@ const Feature = () => (
         <div className="absolute w-[500px] h-[500px] top-64 -left-64 bg-primary/10 rounded-full blur-3xl animate-float-slow" />
         <div className="absolute w-[300px] h-[300px] top-1/2 right-0 bg-secondary/10 rounded-full blur-2xl animate-float-medium" />
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 place-self-center max-w-[1200px] w-full mb-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-5  place-self-center max-w-[1200px] w-full mb-8">
         {features.map((feature, idx) => (
           <Link
             onClick={() => window.scrollTo(0, 0)} to={feature.link}
@@ -82,7 +87,7 @@ const Feature = () => (
             <span className="flex items-center justify-center lg:size-14 size-10   rounded-full bg-white shadow mr-1   lg:mr-4 group-hover:bg-black/80 group-hover:scale-110   transition-all duration-500 ease-in">
               {feature.icon}
             </span>
-            <h5 className="lg:text-lg  whitespace-nowrap font-semibold text-[#2E2A20] group-hover:text-white   transition-all duration-200 ease-in">
+            <h5 className="lg:text-lg px-1  whitespace-nowrap font-semibold text-[#2E2A20] group-hover:text-white   transition-all duration-200 ease-in">
              {feature.title}
             </h5>
           </Link>
@@ -94,6 +99,7 @@ const Feature = () => (
       />
     
   </section>
-);
+  );
+};
 
 export default Feature;

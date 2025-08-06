@@ -47,15 +47,15 @@ const VideoSection = () => {
             transition={{ duration: 0.6 }}
             className="text-primary text-center font-medium tracking-wider uppercase mb-3"
           >
-            LATEST Video
+            {t("videos.latest_video")}
           </h4>
           <AnimatedComponent animationType="fade-right">
             <div className="relative">
               <h1 className="text-4xl lg:text-5xl leading-relaxed font-jost font-medium uppercase text-gray-200">
-               {t("our_video_projects")} 
+               {t("Visual_Showcase")} 
               </h1>
               <div className="lg:text-6xl  text-5xl  absolute lg:-top-8 -top-10 left-1/2 transform -translate-x-1/2 leading-relaxed font-bold uppercase text-gray-500 opacity-10">
-                {t("our_video_projects")}0
+                {t("Visual_Showcase")}0
               </div>
             </div>
           </AnimatedComponent>
@@ -75,24 +75,24 @@ const VideoSection = () => {
             <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
               <VideoCard
                 number="01"
-                title={t("Islamic")}
-                description={t("walls and floors")}
+                title={t("videos.video_01.title")}
+                description={t("videos.video_01.description")}
                 videoSrc={services_vide}
-                // poster="/assets/images/gallery/gallery12.jpg"
+                poster="/assets/images/gallery/gallery12.jpg"
               />
               <VideoCard
                 number="02"
-                title={t("Modern")}
-                description={t("any environment.")}
+                title={t("videos.video_02.title")}
+                description={t("videos.video_02.description")}
                 videoSrc={services_vide2}
-                // poster="/assets/images/gallery/gallery10.jpg"
+                poster="/assets/images/gallery/gallery10.jpg"
               />
               <VideoCard
                 number="03"
-                title={t("Clasic")}
-                description={t("indoor and outdoor")}
+                title={t("videos.video_03.title")}
+                description={t("videos.video_03.description")}
                 videoSrc={services_vide3}
-                // poster="/assets/images/gallery/gallery8.jpg"
+                poster="/assets/images/gallery/gallery8.jpg"
               />
             </div>
           </div>

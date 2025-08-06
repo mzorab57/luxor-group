@@ -1,119 +1,6 @@
-import  { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AnimatedComponent from "../components/animation/AnimatedComponent";
 import { useTranslation } from "react-i18next";
-
-const services = [
- {
-    id: "01",
-    title: "Custom Large-Scale Painting Production",
-    description: "Masterpieces up to 8 meters that transform spaces",
-    points: [
-      "Creation of paintings up to 8 meters in size",
-      "Customized artwork tailored to client specifications",
-      "Artistic collaborations and commissions",
-    ],
-    image: "/assets/images/gallery/gallery6.jpg",
-    color: "from-amber-500/20 to-orange-600/20",
-    accentColor: "amber-400",
-  },
-  {
-    id: "02",
-    title: "Frame Selection & Custom Framing",
-    description: "Perfect frames that complement your artwork",
-    points: [
-      "Wide variety of frame styles and materials",
-      "Custom framing solutions to match artwork and décor",
-      "Frame design consultations",
-    ],
-    image: "/assets/images/gallery/gallery11.jpg",
-    color: "from-purple-500/20 to-pink-600/20",
-    accentColor: "purple-400",
-  },
-  {
-    id: "03",
-    title: "Bulk Painting Production",
-    description: "Large-scale production with artistic excellence",
-    points: [
-      "Rapid manufacturing of hundreds of paintings for large projects",
-      "Streamlined production processes for quick turnaround",
-      "Volume discounts for large orders",
-    ],
-    image: "/assets/images/gallery/gallery7.jpg",
-    color: "from-emerald-500/20 to-teal-600/20",
-    accentColor: "emerald-400",
-  },
-  {
-    id: "04",
-    title: "Art Installation & Setup",
-    description: "Professional installation with precision care",
-    points: [
-      "On-site installation of large paintings",
-      "Professional handling and safety measures",
-      "Post-installation support",
-    ],
-    image: "/assets/images/gallery/gallery15.jpg",
-    color: "from-blue-500/20 to-cyan-600/20",
-    accentColor: "blue-400",
-  },
-  {
-    id: "05",
-    title: "Worldwide Shipping & Logistics",
-    points: [
-      "Secure packaging for large and fragile artworks",
-      "International shipping services",
-      "Customs clearance and delivery coordination globally",
-    ],
-     image: "/assets/images/gallery/gallery8.jpg",
-     color: "from-amber-500/20 to-orange-600/20",
-    accentColor: "amber-400",
-  },
-  {
-    id: "06",
-    title: "Art Consultation & Design Services",
-    points: [
-      "Concept development for large-scale murals and artworks",
-      "Design visualization and mock-ups",
-      "Site-specific artwork planning",
-      
-    ],
-     image: "/assets/images/gallery/gallery9.jpg",
-     color: "from-purple-500/20 to-pink-600/20",
-    accentColor: "purple-400",
-  },
-  {
-    id: "07",
-    title: "Art Leasing & Corporate Decor Solutions",
-    points: [
-      "Rental of large artworks for events, offices, and public spaces",
-      "Custom art installations for corporate branding",
-    ],
-     image: "/assets/images/gallery/gallery10.jpg",
-     color: "from-emerald-500/20 to-teal-600/20",
-    accentColor: "emerald-400",
-  },
-  {
-    id: "08",
-    title: "Restoration & Preservation Services",
-    points: [
-      "Artwork conservation and restoration",
-      "Maintenance of large-scale paintings",
-    ],
-     image: "/assets/images/gallery/gallery12.jpg",
-     color: "from-blue-500/20 to-cyan-600/20",
-    accentColor: "blue-400",
-  },
-  {
-    id: "09",
-    title: "Event & Exhibition Services",
-    points: [
-      "Providing large artworks for exhibitions and displays",
-      "Support in organizing art-related events",
-    ],
-     image: "/assets/images/gallery/gallery13.jpg",
-     color: "from-amber-500/20 to-orange-600/20",
-    accentColor: "amber-400",
-  },
-];
 
 const Service = () => {
   const cursorRef = useRef(null);
@@ -121,7 +8,113 @@ const Service = () => {
   const [hoveredService, setHoveredService] = useState(null);
   const sectionRef = useRef(null);
   const { t } = useTranslation();
-
+  const services = [
+    {
+      id: "01",
+      title: t("services.service_01.title"),
+      description: t("services.service_01.description"),
+      points: t("services.service_01.points", { returnObjects: true }),
+      image: "/assets/images/gallery/gallery6.jpg",
+      color: "from-amber-500/20 to-orange-600/20",
+      accentColor: "amber-400",
+    },
+    {
+      id: "02",
+      title: "Frame Selection & Custom Framing",
+      description: "Perfect frames that complement your artwork",
+      points: [
+        "Wide variety of frame styles and materials",
+        "Custom framing solutions to match artwork and décor",
+        "Frame design consultations",
+      ],
+      image: "/assets/images/gallery/gallery11.jpg",
+      color: "from-purple-500/20 to-pink-600/20",
+      accentColor: "purple-400",
+    },
+    {
+      id: "03",
+      title: "Bulk Painting Production",
+      description: "Large-scale production with artistic excellence",
+      points: [
+        "Rapid manufacturing of hundreds of paintings for large projects",
+        "Streamlined production processes for quick turnaround",
+        "Volume discounts for large orders",
+      ],
+      image: "/assets/images/gallery/gallery7.jpg",
+      color: "from-emerald-500/20 to-teal-600/20",
+      accentColor: "emerald-400",
+    },
+    {
+      id: "04",
+      title: "Art Installation & Setup",
+      description: "Professional installation with precision care",
+      points: [
+        "On-site installation of large paintings",
+        "Professional handling and safety measures",
+        "Post-installation support",
+      ],
+      image: "/assets/images/gallery/gallery15.jpg",
+      color: "from-blue-500/20 to-cyan-600/20",
+      accentColor: "blue-400",
+    },
+    {
+      id: "05",
+      title: "Worldwide Shipping & Logistics",
+      points: [
+        "Secure packaging for large and fragile artworks",
+        "International shipping services",
+        "Customs clearance and delivery coordination globally",
+      ],
+      image: "/assets/images/gallery/gallery8.jpg",
+      color: "from-amber-500/20 to-orange-600/20",
+      accentColor: "amber-400",
+    },
+    {
+      id: "06",
+      title: "Art Consultation & Design Services",
+      points: [
+        "Concept development for large-scale murals and artworks",
+        "Design visualization and mock-ups",
+        "Site-specific artwork planning",
+      ],
+      image: "/assets/images/gallery/gallery9.jpg",
+      color: "from-purple-500/20 to-pink-600/20",
+      accentColor: "purple-400",
+    },
+    {
+      id: "07",
+      title: "Art Leasing & Corporate Decor Solutions",
+      points: [
+        "Rental of large artworks for events, offices, and public spaces",
+        "Custom art installations for corporate branding",
+      ],
+      image: "/assets/images/gallery/gallery10.jpg",
+      color: "from-emerald-500/20 to-teal-600/20",
+      accentColor: "emerald-400",
+    },
+    {
+      id: "08",
+      title: "Restoration & Preservation Services",
+      points: [
+        "Artwork conservation and restoration",
+        "Maintenance of large-scale paintings",
+      ],
+      image: "/assets/images/gallery/gallery12.jpg",
+      color: "from-blue-500/20 to-cyan-600/20",
+      accentColor: "blue-400",
+    },
+    {
+      id: "09",
+      title: "Event & Exhibition Services",
+      points: [
+        "Providing large artworks for exhibitions and displays",
+        "Support in organizing art-related events",
+      ],
+      image: "/assets/images/gallery/gallery13.jpg",
+      color: "from-amber-500/20 to-orange-600/20",
+      accentColor: "amber-400",
+    },
+  ];
   // Enhanced cursor effect
   useEffect(() => {
     const cursor = cursorRef.current;
@@ -180,19 +173,23 @@ const Service = () => {
       ref={sectionRef}
       className="relative py-32 bg-gradient-to-br from-[#0a0a0a] via-[#19160f] to-[#1a1a1a] overflow-hidden"
     >
-      <AnimatedComponent animationType="fade-up" dataAosDuration={1000} delay={200}>
-      {/* Enhanced Background Effects */}
-      <div className="absolute inset-0">
-        {/* Animated Gradient Orbs */}
-        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-primary/20 via-amber-500/10 to-orange-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-purple-500/15 via-pink-500/10 to-rose-500/15 rounded-full blur-3xl animate-float-reverse"></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-r from-emerald-500/20 via-teal-500/10 to-cyan-500/15 rounded-full blur-2xl animate-float-medium"></div>
+      <AnimatedComponent
+        animationType="fade-up"
+        dataAosDuration={1000}
+        delay={200}
+      >
+        {/* Enhanced Background Effects */}
+        <div className="absolute inset-0">
+          {/* Animated Gradient Orbs */}
+          <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-primary/20 via-amber-500/10 to-orange-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-purple-500/15 via-pink-500/10 to-rose-500/15 rounded-full blur-3xl animate-float-reverse"></div>
+          <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-r from-emerald-500/20 via-teal-500/10 to-cyan-500/15 rounded-full blur-2xl animate-float-medium"></div>
 
-        {/* chwar goshakan Geometric Patterns */}
-        <div className="absolute top-40 right-1/4 w-32 h-32 border border-primary/10 rotate-45 animate-spin-slow"></div>
-        <div className="absolute bottom-40 left-1/4 w-24 h-24 border-2 border-purple-500/10 rounded-full animate-bounce-slow"></div>
-      </div>
-</AnimatedComponent>
+          {/* chwar goshakan Geometric Patterns */}
+          <div className="absolute top-40 right-1/4 w-32 h-32 border border-primary/10 rotate-45 animate-spin-slow"></div>
+          <div className="absolute bottom-40 left-1/4 w-24 h-24 border-2 border-purple-500/10 rounded-full animate-bounce-slow"></div>
+        </div>
+      </AnimatedComponent>
       {/* Floating Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(15)].map((_, i) => (
@@ -231,20 +228,19 @@ const Service = () => {
         <div className="relative mb-20 text-center">
           {/* Header */}
           <div className="relative mb-12 sm:mb-16 lg:mb-20 text-center">
-             <AnimatedComponent animationType="fade-up">
-            <h4
-              className="text-primary text-center font-medium tracking-wider uppercase mb-3"
-            >
-              {t("our_bst_services")}
-            </h4>
+            <AnimatedComponent animationType="fade-up">
+              <h4 className="text-primary text-center font-medium tracking-wider uppercase mb-3">
+                {" "}
+                {t("Our_Bst_Services")}
+              </h4>
             </AnimatedComponent>
             <AnimatedComponent animationType="fade-up">
               <div className="relative">
                 <h1 className="lg:text-5xl text-4xl leading-relaxed font-jost font-medium uppercase text-gray-200">
-                  {t(" Services We're Offering")}
+                  {t("Services_We_Are_Offering")}
                 </h1>
                 <div className="lg:text-6xl whitespace-nowrap text-5xl absolute lg:-top-8 -top-10 left-1/2 transform -translate-x-1/2 leading-relaxed font-bold uppercase text-gray-500 opacity-10">
-                  {t(" Services We're Offering")}
+                  {t("Services_We_Are_Offering")}
                 </div>
                 {/* Decorative Elements */}
                 <div className="absolute -top-4 -left-4 w-8 h-8 border-2 border-primary/30 rotate-45"></div>
@@ -313,7 +309,8 @@ const Service = () => {
                     className="hover-target bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/40 text-primary px-4 py-1 rounded-full font-medium backdrop-blur-sm transform transition-all duration-300 hover:from-primary hover:to-amber-500 hover:text-black hover:scale-105  translate-y-4 group-hover:translate-y-0 delay-200"
                     onClick={() => setSelectedService(service)}
                   >
-                    Explore Details
+                    
+                    {t("Explore_More")}
                   </button>
                 </div>
               </div>
@@ -402,18 +399,7 @@ const Service = () => {
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-white">
-                    Why Choose This Service?
-                  </h3>
-                  <div className="bg-gradient-to-br from-primary/10 to-amber-500/5 p-3 rounded-2xl border border-primary/20">
-                    <p className="text-gray-300 text-sm ">
-                      Our expert team combines artistic excellence with
-                      cutting-edge technology to deliver results that exceed
-                      expectations.
-                    </p>
-                  </div>
-                </div>
+           
               </div>
 
               {/* Action Buttons */}
@@ -434,7 +420,7 @@ const Service = () => {
       )}
 
       {/* Enhanced Custom Styles */}
-      <style >{`
+      <style>{`
         @keyframes fadeIn {
           from {
             opacity: 0;

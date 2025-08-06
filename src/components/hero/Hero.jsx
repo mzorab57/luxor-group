@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
-import videoMp4 from "/assets/videos/bgLuxor2.mp4";
+import videoWebm from "/assets/videos/bgLuxor5.webm";
+import videoMp4 from "/assets/videos/bgLuxor3.mp4";
 
 import AnimatedComponent from "../../components/animation/AnimatedComponent";
 // import { Link as LinkScroll } from "react-scroll";
@@ -61,7 +62,7 @@ const Hero = () => {
           preload="metadata"
           loading="eager"
         >
-          {/* <source src={videoWebm} type="video/webm" /> */}
+          <source src={videoWebm} type="video/webm" />
           <source src={videoMp4} type="video/mp4" />
         </video>
 
